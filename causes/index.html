@@ -1,0 +1,11 @@
+---
+title: Causes
+layout: default
+permalink: /causes/
+description: We love giving back to our community by donating sample lesson packages to local schools and organizations. Know about a silent auction or worthy cause to which we should contribute? Contact us!
+---
+
+{% for cause in site.data.causes %}
+<h2>{{cause.name}}</h2>
+<p>{{cause.description}}</p>
+{% endfor %}

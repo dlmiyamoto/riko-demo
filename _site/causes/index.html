@@ -1,0 +1,227 @@
+<html>
+
+<head>
+        <link rel="import" href="/bower_components/polymer/polymer.html"></link>
+    <link rel="import" href="/bower_components/app-layout/app-layout.html"></link>
+    <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"></link>
+    <link rel="import" href="/bower_components/paper-button/paper-button.html"></link>
+    <link rel="import" href="/bower_components/paper-card/paper-card.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-item.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-item-body.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-icon-item.html"></link>
+    <link rel="import" href="/bower_components/paper-menu/paper-menu.html"></link>
+    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html"></link>
+    <link rel="import" href="/bower_components/iron-icons/iron-icons.html"></link>
+    <link rel="import" href="/bower_components/iron-list/iron-list.html"></link>
+    <link rel="import" href="/elements/grid-tile.html"></link>
+    <link rel="import" href="/elements/team-member.html"></link>
+    <link rel="import" href="/elements/page-header.html"></link>
+    <link rel="import" href="/elements/pricing-tile.html"></link>
+
+    <style is="custom-style">
+        :root {
+          --primary-color: #b81e79;
+        }
+        body {
+            margin: 0;
+            font-family: 'Roboto', 'Noto', sans-serif;
+            color: #404040;
+            font-weight: 300;
+            line-height: 25px;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke: 0.1px;
+        }
+        app-toolbar {
+          color: white;
+          font-weight: 600;
+        }
+        app-toolbar > [title]{
+          font-weight: lighter;
+          /*margin-left: 30px;*/
+          text-transform: uppercase;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        a:link,
+        a:visited{
+          text-decoration: none;
+        }
+        a.drawer-item,
+        a.drawer-item:link,
+        a.drawer-item:visited{
+          color: black;
+        }
+        blockquote {
+          margin: 20px 0;
+          border-left: 5px solid var(--primary-color);
+          padding-left: 1.5rem;
+          word-wrap: break-word;
+        }
+        figure {
+          margin: 20px 0;
+          padding-left: 1.5rem;
+          border-left: 5px solid var(--primary-color);
+        }
+        paper-button {
+          font-size: 14px;
+        }
+        app-drawer {
+            overflow-y: auto;
+            margin-top: 64px;
+            @apply(--shadow-elevation-2dp);
+        }
+        .flex-wrap {
+            @apply(--layout-horizontal);
+            @apply(--layout-wrap);
+        }
+        .content {
+          margin-left: 6em;
+          margin-right: 6em;
+        }
+        .content > h1 {
+          display: inline-block;
+          color: #0d0d0d;
+          font-size: 3.4375em;
+          font-weight: 900;
+          line-height: 54px;
+          text-align: left;
+          text-transform: uppercase;
+          border-right: 20px solid var(--paper-teal-200);
+          float: left;
+          margin: 0;
+          padding-right: 16px;
+          margin-right: 16px;
+          /*position: relative;*/
+          -webkit-text-stroke: 0.3px;
+        }
+        .content > h2 {
+          font-size: 1.375em;
+        }
+        .content > p {
+          line-height: 30px;
+          font-size: 1em;
+          margin-bottom: 20px
+        }
+        .content > hr {
+          margin-top: 2em;
+          border-top: 1px solid #8c8b8b;
+          border-bottom: 0;
+          border-left: 0;
+          border-right: 0;
+          text-align: center;
+        }
+        .content > hr:after {
+          content: '§';
+          display: inline-block;
+          position: relative;
+          top: -16px;
+          padding: 0 10px;
+          background: white;
+          color: #8c8b8b;
+          font-size: 18px;
+        }
+    </style>
+
+
+    <link rel="import" href="/elements/fixed-header.html"></link>
+    <link rel="import" href="/elements/page-header.html"></link>
+    <style>
+    .row {
+      width: 100%;
+    }
+
+    </style>
+</head>
+
+<body class="fullbleed" unresolved>
+  <fixed-header>
+    <app-toolbar>
+        <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+        <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+        <img src="/images/logo.png" style="height: 44px"></img>
+        <div title>Riko Method</div>
+        
+        <a href="/"><paper-button>About</paper-button></a>
+        
+        <a href="/team/"><paper-button>Team</paper-button></a>
+        
+        <a href="/classes/"><paper-button>Classes</paper-button></a>
+        
+        <a href="/gallery/"><paper-button>Gallery</paper-button></a>
+        
+        <a href="/causes/"><paper-button>Causes</paper-button></a>
+        
+        <a href="/blog/"><paper-button>Blog</paper-button></a>
+        
+    </app-toolbar>
+        <!-- <app-drawer>
+    <paper-menu>
+      
+      <a href="/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          About
+        </paper-icon-item>
+      </a>
+      
+      <a href="/team/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Team
+        </paper-icon-item>
+      </a>
+      
+      <a href="/classes/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Classes
+        </paper-icon-item>
+      </a>
+      
+      <a href="/gallery/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Gallery
+        </paper-icon-item>
+      </a>
+      
+      <a href="/causes/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Causes
+        </paper-icon-item>
+      </a>
+      
+      <a href="/blog/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Blog
+        </paper-icon-item>
+      </a>
+      
+    </paper-menu>
+</app-drawer>
+ -->
+      <div class="content">
+        <page-header>
+          <h1>Causes</h1>
+          <p>We love giving back to our community by donating sample lesson packages to local schools and organizations. Know about a silent auction or worthy cause to which we should contribute? Contact us!</p>
+        </page-header>
+        <div class="flex">
+          
+<h2>Encino Parents Nursery School Fundraiser 2014</h2>
+<p>EPNS fundraises every year to provide funds for activities and better education for their student body and thier facility.</p>
+
+<h2>Brentwood Sunshine Preschool Gala 2015</h2>
+<p>Our support will help achieve school enrichments, programs, scholarships and special projects.</p>
+
+<h2>UCLA Early Care and Education</h2>
+<p>ECE's mission is to provide quality child care and support for families by providing resources and information to the community with state and national conferences.</p>
+
+
+        </div>
+      </div>
+  </fixed-header>
+</body>
+
+</html>

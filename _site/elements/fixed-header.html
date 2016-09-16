@@ -1,0 +1,36 @@
+<dom-module is="fixed-header">
+  <style is="custom-style">
+  app-header {
+    background-color: var(--primary-color)
+  }
+  .content {
+    margin: 16px;
+  }
+  :host::content app-toolbar > a >paper-button{
+    color: white;
+    font-weight: 600;
+  }
+  :host::content app-toolbar > [title] {
+    flex: 1;
+  }
+  </style>
+    <template>
+        <app-header-layout>
+            <app-header fixed>
+              <content select="app-toolbar"></content>
+            </app-header>
+            <app-drawer-layout>
+              <content select="app-drawer"></content>
+              <div class="content">
+                <content></content>
+              </div>
+            </app-drawer-layout>
+        </app-header-layout>
+    </template>
+</dom-module>
+
+<script>
+Polymer({
+  is: "fixed-header"
+})
+</script>

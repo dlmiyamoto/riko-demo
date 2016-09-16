@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    {% include head.html %}
+
+    <link rel="import" href="/elements/fixed-header.html"></link>
+    <link rel="import" href="/elements/page-header.html"></link>
+    <style>
+    .row {
+      width: 100%;
+    }
+
+    </style>
+</head>
+
+<body class="fullbleed" unresolved>
+  <fixed-header>
+    <app-toolbar>
+        <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+        <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+        <img src="/images/logo.png" style="height: 44px"></img>
+        <div title>{{site.title}}</div>
+        {% for nav in site.data.navs %}
+        <a href="{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
+        {% endfor %}
+    </app-toolbar>
+        <!-- {% include drawer.html %} -->
+      <div class="content">
+        <page-header>
+          <h1>{{page.title}}</h1>
+          <p>{{page.description}}</p>
+        </page-header>
+        <div class="flex">
+          {{content}}
+        </div>
+      </div>
+  </fixed-header>
+</body>
+
+</html>

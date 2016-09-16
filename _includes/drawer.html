@@ -1,0 +1,12 @@
+<app-drawer>
+    <paper-menu>
+      {% for nav in site.data.navs %}
+      <a href="{{nav.href}}" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          {{nav.text}}
+        </paper-icon-item>
+      </a>
+      {% endfor %}
+    </paper-menu>
+</app-drawer>

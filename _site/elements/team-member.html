@@ -1,0 +1,31 @@
+<dom-module is="team-member">
+    <style is="custom-style">
+        :host {
+            width: 18em;
+            padding-right: 1.375em;
+        }
+        :host::content h3 {
+            font-size: 1.625em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        :host::content h4 {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+        :host::content p {
+            font-size: 1em;
+            margin-bottom: 30px;
+        }
+    </style>
+    <template>
+        <img src="[[imgSrc]]"></img>
+        <content></content>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "team-member"
+    })
+</script>

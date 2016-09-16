@@ -1,0 +1,19 @@
+# Navigation Data
+#
+- href: /
+  text: About
+
+- href: /team/
+  text: Team
+
+- href: /classes/
+  text: Classes
+
+- href: /gallery/
+  text: Gallery
+
+- href: /causes/
+  text: Causes
+
+- href: /blog/
+  text: Blog

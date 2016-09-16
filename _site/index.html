@@ -1,0 +1,388 @@
+<html>
+<head>
+    <link rel="import" href="/bower_components/polymer/polymer.html"></link>
+    <link rel="import" href="/bower_components/app-layout/app-layout.html"></link>
+    <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"></link>
+    <link rel="import" href="/bower_components/paper-button/paper-button.html"></link>
+    <link rel="import" href="/bower_components/paper-card/paper-card.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-item.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-item-body.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-icon-item.html"></link>
+    <link rel="import" href="/bower_components/paper-menu/paper-menu.html"></link>
+    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html"></link>
+    <link rel="import" href="/bower_components/iron-icons/iron-icons.html"></link>
+    <link rel="import" href="/bower_components/iron-list/iron-list.html"></link>
+    <link rel="import" href="/elements/grid-tile.html"></link>
+    <link rel="import" href="/elements/team-member.html"></link>
+    <link rel="import" href="/elements/page-header.html"></link>
+    <link rel="import" href="/elements/pricing-tile.html"></link>
+
+    <style is="custom-style">
+        :root {
+          --primary-color: #b81e79;
+        }
+        body {
+            margin: 0;
+            font-family: 'Roboto', 'Noto', sans-serif;
+            color: #404040;
+            font-weight: 300;
+            line-height: 25px;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke: 0.1px;
+        }
+        app-toolbar {
+          color: white;
+          font-weight: 600;
+        }
+        app-toolbar > [title]{
+          font-weight: lighter;
+          /*margin-left: 30px;*/
+          text-transform: uppercase;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        a:link,
+        a:visited{
+          text-decoration: none;
+        }
+        a.drawer-item,
+        a.drawer-item:link,
+        a.drawer-item:visited{
+          color: black;
+        }
+        blockquote {
+          margin: 20px 0;
+          border-left: 5px solid var(--primary-color);
+          padding-left: 1.5rem;
+          word-wrap: break-word;
+        }
+        figure {
+          margin: 20px 0;
+          padding-left: 1.5rem;
+          border-left: 5px solid var(--primary-color);
+        }
+        paper-button {
+          font-size: 14px;
+        }
+        app-drawer {
+            overflow-y: auto;
+            margin-top: 64px;
+            @apply(--shadow-elevation-2dp);
+        }
+        .flex-wrap {
+            @apply(--layout-horizontal);
+            @apply(--layout-wrap);
+        }
+        .content {
+          margin-left: 6em;
+          margin-right: 6em;
+        }
+        .content > h1 {
+          display: inline-block;
+          color: #0d0d0d;
+          font-size: 3.4375em;
+          font-weight: 900;
+          line-height: 54px;
+          text-align: left;
+          text-transform: uppercase;
+          border-right: 20px solid var(--paper-teal-200);
+          float: left;
+          margin: 0;
+          padding-right: 16px;
+          margin-right: 16px;
+          /*position: relative;*/
+          -webkit-text-stroke: 0.3px;
+        }
+        .content > h2 {
+          font-size: 1.375em;
+        }
+        .content > p {
+          line-height: 30px;
+          font-size: 1em;
+          margin-bottom: 20px
+        }
+        .content > hr {
+          margin-top: 2em;
+          border-top: 1px solid #8c8b8b;
+          border-bottom: 0;
+          border-left: 0;
+          border-right: 0;
+          text-align: center;
+        }
+        .content > hr:after {
+          content: '§';
+          display: inline-block;
+          position: relative;
+          top: -16px;
+          padding: 0 10px;
+          background: white;
+          color: #8c8b8b;
+          font-size: 18px;
+        }
+    </style>
+
+<style is="custom-style">
+  app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 600px;
+      background-position: bottom center;
+      background-size: cover;
+      background: url("/images/vanity-fair.jpg") 50% 0 no-repeat fixed;
+
+      --app-header-background-front-layer: {
+          background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
+      };
+      --app-header-background-rear-layer: {
+          background-color: var(--primary-color);
+      };
+  }
+  [main-title] {
+    font-size: 3em;
+    line-height: 55px;
+    font-weight: 300;
+    position: absolute;
+    bottom: 40px;
+    color: #eee;
+    margin: 0;
+    margin-left: 30px;
+  }
+  [condensed-title] {
+    font-weight: lighter;
+    /*margin-left: 30px;*/
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  app-toolbar > a >paper-button{
+    color: white;
+    font-weight: 600;
+  }
+  .content {
+    margin-left: 6em;
+    margin-right: 6em;
+  }
+  .content > h1 {
+    color: #0d0d0d;
+    font-size: 3.4375em;
+    font-weight: 900;
+    line-height: 54px;
+    text-align: left;
+    text-transform: uppercase;
+    border-right: 20px solid var(--paper-teal-200);
+    float: left;
+    margin: 0;
+    padding-right: 16px;
+    margin-right: 16px;
+    /*position: relative;*/
+    -webkit-text-stroke: 0.3px;
+  }
+  .content > h2 {
+    font-size: 1.375em;
+    text-transform: uppercase;
+  }
+  /*.content > h1:after {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background-color: #b81e79;
+    content: "";
+    top: 6px;
+    right: 0px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }*/
+  .content > p {
+    line-height: 30px;
+    font-size: 1em;
+    margin-bottom: 20px
+  }
+  .content > hr {
+    margin-top: 2em;
+  	border-top: 1px solid #8c8b8b;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+  	text-align: center;
+  }
+  .content > hr:after {
+  	content: '§';
+  	display: inline-block;
+  	position: relative;
+  	top: -16px;
+  	padding: 0 10px;
+  	background: white;
+  	color: #8c8b8b;
+  	font-size: 18px;
+  }
+  footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+  #social-sidebar {
+   left: .675em;
+   position: fixed;
+   top: 30%;
+ }
+ #social-sidebar > ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   font-size:1.675em;
+ }
+ #social-sidebar > ul > li > a:link,
+ #social-sidebar > ul >li > a:visited {
+   color: black;
+ }
+ #social-sidebar > ul > li > a:hover {
+   color:red;
+ }
+ .twitter:before{
+   content: "\f099";
+ }
+ .facebook:before{
+   content: "\f09a";
+ }
+ .pinterest:before{
+   content: "\f0d2";
+ }
+ .youtube:before{
+   content: "\f167";
+ }
+ .linkedin:before{
+   content: "\f0e1";
+ }
+</style>
+</head>
+<body class="fullbleed" unresolved>
+  <div id="social-sidebar">
+    <ul>
+      <li><a class="twitter" href="/"></a></li>
+      <li><a class="facebook"></a></li>
+      <li><a class="pinterest"></a></li>
+      <li><a class="youtube"></a></li>
+      <li><a class="linkedin"></a></li>
+    </ul>
+  </div>
+    <app-header-layout>
+        <app-header condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
+            <app-toolbar>
+              <img src="/images/logo.png" style="height: 44px"></img>
+                <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+                <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+                <div condensed-title>Riko Method</div>
+                
+                <a href="/"><paper-button>About</paper-button></a>
+                
+                <a href="/team/"><paper-button>Team</paper-button></a>
+                
+                <a href="/classes/"><paper-button>Classes</paper-button></a>
+                
+                <a href="/gallery/"><paper-button>Gallery</paper-button></a>
+                
+                <a href="/causes/"><paper-button>Causes</paper-button></a>
+                
+                <a href="/blog/"><paper-button>Blog</paper-button></a>
+                
+            </app-toolbar>
+            <h1 main-title>Riko Method School of Piano</h1>
+        </app-header>
+        </app-header>
+        <app-drawer-layout force-narrow>
+          <app-drawer>
+    <paper-menu>
+      
+      <a href="/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          About
+        </paper-icon-item>
+      </a>
+      
+      <a href="/team/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Team
+        </paper-icon-item>
+      </a>
+      
+      <a href="/classes/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Classes
+        </paper-icon-item>
+      </a>
+      
+      <a href="/gallery/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Gallery
+        </paper-icon-item>
+      </a>
+      
+      <a href="/causes/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Causes
+        </paper-icon-item>
+      </a>
+      
+      <a href="/blog/" class="drawer-item">
+        <paper-icon-item>
+          <iron-icon icon="assignment" item-icon></iron-icon>
+          Blog
+        </paper-icon-item>
+      </a>
+      
+    </paper-menu>
+</app-drawer>
+
+          <div class="content">
+
+          <page-header>
+    <h1>About</h1>
+    <p>Located in Atwater Village, Riko Method School of Piano serves aspiring musicians of all ages and levels. Riko’s original teaching method, implemented by trained instructors, facilitates basic keyboard fluency from lesson one.</p>
+</page-header>
+<h2>Our School</h2>
+<p>Founded by internationally trained educator, pianist and author Riko in 2005, Riko Method School of Piano moved to its current location in 2014. In addition to piano lessons and group classes, RMSP offers lessons in guitar, voice, violin and flute as
+    well as specialized instruction for pre- and post-natal mothers. All RMSP instructors complete rigorous training in Riko’s unique and effective curriculum. Our students love our committed, trained instructors and the fact that we empower them to play
+    beautiful music on their own from the very first lesson. We are proud of our high student retention rate and proud to contribute quality music education to our community!</p>
+<hr>
+<h2>Our Founder</h2>
+<p>Since her debut in 1987, Riko has appeared in numerous concert series and festivals in Europe, Asia and the United States. Riko studied piano with Walter Hautzig at The Peabody Conservatory of Johns Hopkins University and Edson Elias at Ecole Normale
+    de la Musique de Paris. As a music educator, she has over 30 years of piano teaching experience working with beginners, professional recording artists, and everyone in between. In addition to developing and publishing her own unique curriculum, Riko
+    is a hands-on CEO, regularly conducting training sessions for RMSP instructors.</p>
+<hr>
+<h2>Our Method</h2>
+<p>Based on Riko’s 30-plus years of experience as a music educator, the Riko Method is a complete first-year piano course and educational philosophy. From the very first lesson, RMSP students learn to approach music critically: analyzing musical material,
+    organizing it intelligently, and executing it with precision. Thanks to this efficient approach, complex music is easily digestible by even the youngest first-year students. The Riko Method is also a comprehensive curriculum. At every lesson, students
+    work on technique, ear-training, music theory and sight-reading. The genius of the Riko Method is how it combines all of these elements in a playful, interactive and engaging lesson style that students love.</p>
+<hr>
+<h2>Our Mission</h2>
+<h3>Enriching a cultural lifestyle one lesson at a time.</h3>
+<p>We strive to empower our students and enrich their lives through musical appreciation and excellence. We believe that the first few months of study are critical to that end, which is why our lessons focus on accelerating basic piano fluency from day one.
+    As we grow as a school, it is our desire to have a strong relationship with our community and contribute to the cultural landscape of Atwater Village.</p>
+<hr>
+<h2>Contact Us</h2>
+<p>3363 Glendale Blvd., Los Angeles, CA 90039</p>
+<p>323-486-7185</p>
+<p>admissions@rikomethod.com</p>
+
+          </div>
+
+          <footer>
+            <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+
+            <p>Test Footer</p>
+          </footer>
+        </app-drawer-layout>
+
+    </app-header-layout>
+</body>
+
+</html>

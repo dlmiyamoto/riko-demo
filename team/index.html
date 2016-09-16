@@ -1,0 +1,15 @@
+---
+title: Team
+layout: default
+permalink: /team/
+description: Our trained, multilingual instructors are active performers and passionate, committed educators.
+---
+<div class="flex-wrap">
+  {% for staff in site.data.team %}
+  <team-member>
+    <h3>{{staff.name}}</h3>
+    <h4>{{staff.title}}</h4>
+    <p>{{staff.bio}}</p>
+  </team-member>
+  {% endfor %}
+</div>

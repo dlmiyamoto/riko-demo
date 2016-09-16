@@ -1,0 +1,18 @@
+---
+title: Classes
+layout: default
+permalink: /classes/
+description: Our private lessons and group classes are designed to serve children and adults of all ages and stages.
+---
+<h2>Tuition/Rates</h2>
+<p>Monthly and a la carte rates available. All private lessons are 45 minutes.</p>
+<div class="flex-wrap">
+{% for class in site.data.classes %}
+<pricing-tile>
+  <h3>{{class.name}}</h3>
+  <p>${{class.single}} / Single Lesson </p>
+  <p>${{class.monthly}} / Monthly</p>
+  <p>{{class.description}}</p>
+</pricing-tile>
+{% endfor %}
+</div>
