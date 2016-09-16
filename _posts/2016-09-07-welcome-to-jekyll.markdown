@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Protocol Title"
+title:  "Post Title"
 date:   2016-09-07 11:35:13 -0700
 ---
 
