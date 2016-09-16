@@ -10,7 +10,7 @@
       height: 600px;
       background-position: bottom center;
       background-size: cover;
-      background: url("{{ site.baseurl }}/images/vanity-fair.jpg") 50% 0 no-repeat fixed;
+      background: url("/riko-demo/images/vanity-fair.jpg") 50% 0 no-repeat fixed;
 
       --app-header-background-front-layer: {
           background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
@@ -152,12 +152,12 @@
     <app-header-layout>
         <app-header condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
             <app-toolbar>
-              <img src="{{site.baseurl}}/images/logo.png" style="height: 44px"></img>
+              <img src="/riko-demo/images/logo.png" style="height: 44px"></img>
                 <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
                 <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
                 <div condensed-title>{{site.title}}</div>
                 {% for nav in site.data.navs %}
-                <a href="{{ site.baseurl }}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
+                <a href="/riko-demo/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
                 {% endfor %}
             </app-toolbar>
             <h1 main-title>{{site.maintitle}}</h1>
