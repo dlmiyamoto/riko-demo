@@ -157,7 +157,7 @@
                 <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
                 <div condensed-title>{{site.title}}</div>
                 {% for nav in site.data.navs %}
-                <a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
+                <a href="{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
                 {% endfor %}
             </app-toolbar>
             <h1 main-title>{{site.maintitle}}</h1>
