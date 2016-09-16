@@ -3,8 +3,8 @@
 <head>
     {% include head.html %}
 
-    <link rel="import" href="/elements/fixed-header.html"></link>
-    <link rel="import" href="/elements/page-header.html"></link>
+    <link rel="import" href="/riko-demo/elements/fixed-header.html"></link>
+    <link rel="import" href="/riko-demo/elements/page-header.html"></link>
     <style>
     .row {
       width: 100%;
@@ -18,10 +18,10 @@
     <app-toolbar>
         <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
         <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
-        <img src="/images/logo.png" style="height: 44px"></img>
+        <img src="/riko-demo/images/logo.png" style="height: 44px"></img>
         <div title>{{site.title}}</div>
         {% for nav in site.data.navs %}
-        <a href="{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
+        <a href="/riko-demo{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
         {% endfor %}
     </app-toolbar>
         <!-- {% include drawer.html %} -->
