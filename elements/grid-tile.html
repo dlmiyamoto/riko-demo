@@ -1,9 +1,18 @@
 <dom-module is="grid-tile">
     <style is="custom-style">
-    :host {
-      display: block;
-      width:30%;
-    }
+      :host {
+        display: block;
+      }
+      @media screen and (min-width: 480px){
+        :host {
+          width:30vw;
+        }
+      }
+      @ media screen and (max-width:479px){
+        :host{
+          width: 100%;
+        }
+      }
       .content-wrapper {
         padding: 16px;
       }

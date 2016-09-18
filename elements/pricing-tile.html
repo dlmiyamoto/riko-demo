@@ -1,11 +1,21 @@
 <dom-module is="pricing-tile">
     <style is="custom-style">
-        :host {
-            display: block;
-            padding-right: 1em;
-            flex: 1;
-            /*width: calc(100%/3);*/
-        }
+    @media screen and (max-width:480px){
+      :host {
+        display: block;
+        padding-right: 1em;
+        width: 100%;
+        /*width: calc(100%/3);*/
+      }
+    }
+    @media screen and (min-width: 481px){
+      :host {
+        display: block;
+        padding-right: 1em;
+        flex: 1;
+        /*width: calc(100%/3);*/
+      }
+    }
 
         :host:hover{
             background-color: var(--primary-color);

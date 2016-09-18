@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="import" href="/bower_components/polymer/polymer.html"></link>
+    <link rel="import" href="/bower_components/app-layout/app-layout.html"></link>
+    <link rel="import" href="/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"></link>
+    <link rel="import" href="/bower_components/paper-button/paper-button.html"></link>
+    <link rel="import" href="/bower_components/paper-card/paper-card.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-item.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-item-body.html"></link>
+    <link rel="import" href="/bower_components/paper-item/paper-icon-item.html"></link>
+    <link rel="import" href="/bower_components/paper-menu/paper-menu.html"></link>
+    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html"></link>
+    <link rel="import" href="/bower_components/iron-icons/iron-icons.html"></link>
+    <link rel="import" href="/bower_components/iron-list/iron-list.html"></link>
+    <link rel="import" href="/elements/grid-tile.html"></link>
+    <link rel="import" href="/elements/team-member.html"></link>
+    <link rel="import" href="/elements/page-header.html"></link>
+    <link rel="import" href="/elements/pricing-tile.html"></link>
+=======
     <link rel="import" href="/riko-demo/bower_components/polymer/polymer.html"></link>
     <link rel="import" href="/riko-demo/bower_components/app-layout/app-layout.html"></link>
     <link rel="import" href="/riko-demo/bower_components/app-layout/app-scroll-effects/app-scroll-effects.html"></link>
@@ -14,6 +34,7 @@
     <link rel="import" href="/riko-demo/elements/team-member.html"></link>
     <link rel="import" href="/riko-demo/elements/page-header.html"></link>
     <link rel="import" href="/riko-demo/elements/pricing-tile.html"></link>
+>>>>>>> origin/gh-pages
 
     <style is="custom-style">
         :root {
@@ -24,7 +45,10 @@
             font-family: 'Roboto', 'Noto', sans-serif;
             color: #404040;
             font-weight: 300;
+<<<<<<< HEAD
+=======
             line-height: 25dp;
+>>>>>>> origin/gh-pages
             -webkit-font-smoothing: antialiased;
             -webkit-text-stroke: 0.1px;
         }
@@ -34,10 +58,15 @@
         }
         app-toolbar > [title]{
           font-weight: lighter;
-          /*margin-left: 30px;*/
           text-transform: uppercase;
           overflow: hidden;
-          text-overflow: ellipsis;
+        }
+        app-header {
+          background-color: var(--primary-color)
+        }
+        app-toolbar > a >paper-button{
+          color: white;
+          font-weight: 600;
         }
         app-toolbar > a:hover {
             color: black;
@@ -67,17 +96,38 @@
         }
         app-drawer {
             overflow-y: auto;
-            margin-top: 64px;
+            /*margin-top: 64px;*/
             @apply(--shadow-elevation-2dp);
         }
         .flex-wrap {
             @apply(--layout-horizontal);
             @apply(--layout-wrap);
         }
-        .content {
-          margin-left: 6em;
-          margin-right: 6em;
+        @media screen and (max-width: 480px){
+          .content {
+            margin: 16px;
+          }
+          app-toolbar > a {
+            display: none;
+          }
+          body {
+            line-height: 25px;
+          }
         }
+        @media screen and (min-width: 481px){
+          .content {
+            margin-left: 12vw;
+            margin-right: 12vw;
+          }
+          [drawer-toggle]{
+            display:none;
+          }
+          body {
+            line-height: 25px;
+            font-size: 1.75vh;
+          }
+        }
+
         .content > h1 {
           display: inline-block;
           color: #0d0d0d;
