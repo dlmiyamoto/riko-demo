@@ -9,22 +9,33 @@
     .row {
       width: 100%;
     }
-
+    [main-title] {
+      font-weight: lighter;
+      text-transform: uppercase;
+      overflow: hidden;
+    }
     </style>
 </head>
 
 <body class="fullbleed" unresolved>
-  <fixed-header>
+  <app-drawer-layout force-narrow>
+    <app-drawer align="end">
+    {% include drawer.html %}
+  </app-drawer>
+  <app-header-layout>
+    <app-header fixed>
+
     <app-toolbar>
+      <img src="/images/logo.png" style="height: 44px"></img>
         <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
         <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
-        <img src="/images/logo.png" style="height: 44px"></img>
-        <div title>{{site.title}}</div>
+        <div main-title>{{site.title}}</div>
         {% for nav in site.data.navs %}
         <a href="{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
         {% endfor %}
+        <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
     </app-toolbar>
-        <!-- {% include drawer.html %} -->
+  </app-header>
       <div class="content">
         <page-header>
           <h1>{{page.title}}</h1>
@@ -34,7 +45,8 @@
           {{content}}
         </div>
       </div>
-  </fixed-header>
+    </app-header-layout>
+</app-drawer-layout>
 </body>
 
 </html>

@@ -19,6 +19,7 @@
           background-color: var(--primary-color);
       };
   }
+
   [main-title] {
     font-size: 3em;
     line-height: 55px;
@@ -27,59 +28,21 @@
     bottom: 40px;
     color: #eee;
     margin: 0;
-    margin-left: 30px;
+    margin-left: 16px;
   }
   [condensed-title] {
     font-weight: lighter;
-    /*margin-left: 30px;*/
     text-transform: uppercase;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
-
-
-  app-toolbar > a >paper-button{
-    color: white;
-    font-weight: 600;
-  }
-  .content {
-    margin-left: 6em;
-    margin-right: 6em;
-  }
-  .content > h1 {
-    color: #0d0d0d;
-    font-size: 3.4375em;
-    font-weight: 900;
-    line-height: 54px;
-    text-align: left;
-    text-transform: uppercase;
-    border-right: 20px solid var(--paper-teal-200);
-    float: left;
-    margin: 0;
-    padding-right: 16px;
-    margin-right: 16px;
-    /*position: relative;*/
-    -webkit-text-stroke: 0.3px;
+  @media screen and (max-width: 480px){
+    [main-title] {
+      white-space: normal;
+    }
   }
   .content > h2 {
     font-size: 1.375em;
     text-transform: uppercase;
-  }
-  /*.content > h1:after {
-    position: absolute;
-    width: 20px;
-    height: 40px;
-    background-color: #b81e79;
-    content: "";
-    top: 6px;
-    right: 0px;
-    margin-left: 16px;
-    margin-right: 16px;
-  }*/
-  .content > p {
-    line-height: 30px;
-    font-size: 1em;
-    margin-bottom: 20px
   }
   .content > hr {
     margin-top: 2em;
@@ -104,43 +67,10 @@
     color: white;
     text-align: center;
   }
-  #social-sidebar {
-   left: .675em;
-   position: fixed;
-   top: 30%;
- }
- #social-sidebar > ul {
-   list-style: none;
-   margin: 0;
-   padding: 0;
-   font-size:1.675em;
- }
- #social-sidebar > ul > li > a:link,
- #social-sidebar > ul >li > a:visited {
-   color: black;
- }
- #social-sidebar > ul > li > a:hover {
-   color:red;
- }
- .twitter:before{
-   content: "\f099";
- }
- .facebook:before{
-   content: "\f09a";
- }
- .pinterest:before{
-   content: "\f0d2";
- }
- .youtube:before{
-   content: "\f167";
- }
- .linkedin:before{
-   content: "\f0e1";
- }
 </style>
 </head>
 <body class="fullbleed" unresolved>
-  <div id="social-sidebar">
+  <!-- <div id="social-sidebar">
     <ul>
       <li><a class="twitter" href="/"></a></li>
       <li><a class="facebook"></a></li>
@@ -148,36 +78,32 @@
       <li><a class="youtube"></a></li>
       <li><a class="linkedin"></a></li>
     </ul>
-  </div>
+  </div> -->
+  <app-drawer-layout force-narrow>
+    <app-drawer align="end">
+    {% include drawer.html %}
+  </app-drawer>
     <app-header-layout>
         <app-header condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
             <app-toolbar>
-              <img src="/images/logo.png" style="height: 44px"></img>
-                <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
-                <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+                <img src="/images/logo.png" style="height: 44px"></img>
                 <div condensed-title>{{site.title}}</div>
                 {% for nav in site.data.navs %}
                 <a href="{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
                 {% endfor %}
+                <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             </app-toolbar>
             <h1 main-title>{{site.maintitle}}</h1>
         </app-header>
-        </app-header>
-        <app-drawer-layout force-narrow>
-          {% include drawer.html %}
-          <div class="content">
-
+        <div class="content">
           {{content}}
-          </div>
-
-          <footer>
-            <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-            <p>Test Footer</p>
-          </footer>
-        </app-drawer-layout>
-
+        </div>
+        <footer>
+          <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+          <p>Test Footer</p>
+        </footer>
     </app-header-layout>
+  </app-drawer-layout>
 </body>
 
 </html>
