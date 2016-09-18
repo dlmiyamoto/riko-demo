@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>{{site.maintitle}}</title>
 {% include head.html %}
 <style is="custom-style">
   app-header {
@@ -10,7 +11,7 @@
       height: 600px;
       background-position: bottom center;
       background-size: cover;
-      background: url("{{ site.baseurl }}/images/vanity-fair.jpg") 50% 0 no-repeat fixed;
+      background: url("/riko-demo/images/vanity-fair.jpg") 50% 0 no-repeat fixed;
 
       --app-header-background-front-layer: {
           background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
@@ -31,6 +32,7 @@
     margin-left: 16px;
   }
   [condensed-title] {
+    font-size:2em;
     font-weight: lighter;
     text-transform: uppercase;
     overflow: hidden;
@@ -86,10 +88,16 @@
     <app-header-layout>
         <app-header condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
             <app-toolbar>
+<<<<<<< HEAD
                 <img src="/images/logo.png" style="height: 44px"></img>
+=======
+              <img src="/riko-demo/images/logo.png" style="height: 44px"></img>
+                <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+                <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
+>>>>>>> origin/gh-pages
                 <div condensed-title>{{site.title}}</div>
                 {% for nav in site.data.navs %}
-                <a href="{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
+                <a href="/riko-demo{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
                 {% endfor %}
                 <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             </app-toolbar>

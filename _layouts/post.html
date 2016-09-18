@@ -2,8 +2,8 @@
 
 <head>
     {% include head.html %}
-    <link rel="import" href="/elements/fixed-header.html"></link>
-    <link rel="import" href="/bower_components/paper-checkbox/paper-checkbox.html"></link>
+    <link rel="import" href="/riko-demo/elements/fixed-header.html"></link>
+    <link rel="import" href="/riko-demo/bower_components/paper-checkbox/paper-checkbox.html"></link>
     <style>
     ul {
       padding: 0;
@@ -23,7 +23,7 @@
         <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
         <div title>{{site.title}}</div>
         {% for nav in site.data.navs %}
-        <a href="{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
+        <a href="/riko-demo{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
         {% endfor %}
     </app-toolbar>
         <!-- {% include drawer.html %} -->
