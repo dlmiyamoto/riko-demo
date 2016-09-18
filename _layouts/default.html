@@ -24,12 +24,11 @@
   </app-drawer>
   <app-header-layout>
     <app-header fixed>
-
     <app-toolbar>
-        <img src="/images/logo.png" style="height: 44px"></img>
+      <img src="{{site.baseurl}}/images/logo.png" style="height: 44px"></img>
         <div main-title>{{site.title}}</div>
         {% for nav in site.data.navs %}
-        <a href="/riko-demo{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
+        <a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
         {% endfor %}
         <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
     </app-toolbar>
