@@ -17,29 +17,35 @@
 </head>
 
 <body class="fullbleed" unresolved>
-  <fixed-header>
+  <app-drawer-layout force-narrow>
+    <app-drawer align="end">
+    {% include drawer.html %}
+  </app-drawer>
+  <app-header-layout>
+    <app-header fixed>
     <app-toolbar>
-        <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
-        <!-- <paper-icon-button icon="menu"></paper-icon-button> -->
-        <div title>{{site.title}}</div>
+      <img src="{{site.baseurl}}/images/logo.png" style="height: 44px"></img>
+        <div main-title>{{site.title}}</div>
         {% for nav in site.data.navs %}
-        <a href="/riko-demo{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
+        <a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
         {% endfor %}
+        <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
     </app-toolbar>
-        <!-- {% include drawer.html %} -->
-      <div class="content">
-        <page-header>
-          <h1>{{page.title}}</h1>
-          <p>{{page.description}}</p>
-        </page-header>
-        <div class="post-content markdown-body" itemprop="articleBody">
-            {{ content | replace: '<li>[ ]',
-                '<li><paper-checkbox disabled>' |
+  </app-header>
+  <div class="content">
+      <page-header>
+        <h1>{{page.title}}</h1>
+        <p>{{page.description}}</p>
+      </page-header>
+      <div class="post-content markdown-body" itemprop="articleBody">
+          {{ content | replace: '<li>[ ]',
+              '<li><paper-checkbox disabled>' |
             replace: '<li>[x]',
                 '<li><paper-checkbox value="on" disabled checked>'  }}
           </div>
       </div>
-  </fixed-header>
+    </app-header-layout>
+</app-drawer-layout>
 </body>
 
 </html>
