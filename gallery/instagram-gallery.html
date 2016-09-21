@@ -6,8 +6,13 @@
   }
   </style>
     <template>
+      <iron-scroll-threshold
+        lower-threshold="14"
+
+        on-lower-threshold="loadNext"
+      >
         <div id="instagram"></div>
-        <iron-scroll-threshold scroll-target="[[scrollTarget]]" on-lower-threshold="loadNext">
+
         </iron-scroll-threshold>
     </template>
 </dom-module>
@@ -25,9 +30,6 @@
                 accessToken: '253291627.1677ed0.45b8d7466847441b9a798f77585995e8',
                 target: 'instagram',
                 resolution: 'thumbnail',
-                after: function(){
-                  ironScroll.clearTriggers();
-                }
             })
             this.userFeed.run()
         },
