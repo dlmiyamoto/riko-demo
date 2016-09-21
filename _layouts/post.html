@@ -1,51 +1,10 @@
-<html>
-
-<head>
-    {% include head.html %}
-    <link rel="import" href="/riko-demo/elements/fixed-header.html"></link>
-    <link rel="import" href="/riko-demo/bower_components/paper-checkbox/paper-checkbox.html"></link>
-    <style>
-    ul {
-      padding: 0;
-      list-style-type: none;
-    }
-
-    blockquote > ul {
-      margin: 0;
-    }
-    </style>
-</head>
-
-<body class="fullbleed" unresolved>
-  <app-drawer-layout force-narrow>
-    <app-drawer align="end">
-    {% include drawer.html %}
-  </app-drawer>
-  <app-header-layout>
-    <app-header fixed>
-    <app-toolbar>
-      <img src="{{site.baseurl}}/images/logo.png" style="height: 44px"></img>
-        <div main-title>{{site.title}}</div>
-        {% for nav in site.data.navs %}
-        <a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
-        {% endfor %}
-        <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-    </app-toolbar>
-  </app-header>
-  <div class="content">
-      <page-header>
-        <h1>{{page.title}}</h1>
-        <p>{{page.description}}</p>
-      </page-header>
-      <div class="post-content markdown-body" itemprop="articleBody">
-          {{ content | replace: '<li>[ ]',
-              '<li><paper-checkbox disabled>' |
-            replace: '<li>[x]',
-                '<li><paper-checkbox value="on" disabled checked>'  }}
-          </div>
-      </div>
-    </app-header-layout>
-</app-drawer-layout>
-</body>
-
-</html>
+---
+layout: default
+---
+<page-header>
+  <h1>{{page.title}}</h1>
+  <p>{{page.description}}</p>
+</page-header>
+<div class="post-content markdown-body" itemprop="articleBody">
+  {{ content }}
+</div>

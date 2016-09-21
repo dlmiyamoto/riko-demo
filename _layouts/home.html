@@ -1,108 +1,70 @@
 <html>
+
 <head>
-  <title>{{site.maintitle}}</title>
-{% include head.html %}
-<style is="custom-style">
-  app-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 600px;
-      background-position: bottom center;
-      background-size: cover;
-      background: url("{{site.baseurl}}/images/vanity-fair.jpg") 50% 0 no-repeat fixed;
+    {% include head.html %}
+    <title>{{site.maintitle}}</title>
+    <style is="custom-style">
+        app-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 600px;
+            background-position: bottom center;
+            background-size: cover;
+            background: url("{{site.baseurl}}/images/vanity-fair.jpg") 50% 0 no-repeat fixed;
+            --app-header-background-front-layer: {
+                background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
+            };
+            --app-header-background-rear-layer: {
+                background-color: var(--primary-color);
+            };
+        }
 
-      --app-header-background-front-layer: {
-          background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
-      };
-      --app-header-background-rear-layer: {
-          background-color: var(--primary-color);
-      };
-  }
+        [main-title] {
+            font-size: 3em;
+            line-height: 55px;
+            font-weight: 300;
+            position: absolute;
+            bottom: 40px;
+            color: #eee;
+            margin: 0;
+            margin-left: 16px;
+        }
 
-  [main-title] {
-    font-size: 3em;
-    line-height: 55px;
-    font-weight: 300;
-    position: absolute;
-    bottom: 40px;
-    color: #eee;
-    margin: 0;
-    margin-left: 16px;
-  }
-  [condensed-title] {
-    @apply(--toolbar-title);
-  }
-  @media screen and (max-width: 480px){
-    [main-title] {
-      white-space: normal;
-    }
-  }
-  .content > h2 {
-    font-size: 1.375em;
-    text-transform: uppercase;
-  }
-  .content > hr {
-    margin-top: 2em;
-  	border-top: 1px solid #8c8b8b;
-    border-bottom: 0;
-    border-left: 0;
-    border-right: 0;
-  	text-align: center;
-  }
-  .content > hr:after {
-  	content: '§';
-  	display: inline-block;
-  	position: relative;
-  	top: -16px;
-  	padding: 0 10px;
-  	background: white;
-  	color: #8c8b8b;
-  	font-size: 18px;
-  }
-  footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-  }
-</style>
+        [condensed-title] {
+            @apply(--toolbar-title);
+        }
+
+        @media screen and (max-width: 480px) {
+            [main-title] {
+                white-space: normal;
+            }
+        }
+
+    </style>
 </head>
+
 <body class="fullbleed" unresolved>
-  <!-- <div id="social-sidebar">
-    <ul>
-      <li><a class="twitter" href="/"></a></li>
-      <li><a class="facebook"></a></li>
-      <li><a class="pinterest"></a></li>
-      <li><a class="youtube"></a></li>
-      <li><a class="linkedin"></a></li>
-    </ul>
-  </div> -->
-  <app-drawer-layout force-narrow>
-    <app-drawer align="end">
-    {% include drawer.html %}
-  </app-drawer>
-    <app-header-layout>
-        <app-header condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
-            <app-toolbar>
-                <img src="{{site.baseurl}}/images/logo.png" style="height: 44px"></img>
-                <div condensed-title>{{site.title}}</div>
-                {% for nav in site.data.navs %}
-                <a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
-                {% endfor %}
-                <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-            </app-toolbar>
-            <h1 main-title>{{site.maintitle}}</h1>
-        </app-header>
-        <div class="content">
-          {{content}}
-        </div>
-        <footer>
-          <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-          <p>Test Footer</p>
-        </footer>
-    </app-header-layout>
-  </app-drawer-layout>
+    <app-drawer-layout force-narrow>
+        <app-drawer align="end">
+            {% include drawer.html %}
+        </app-drawer>
+        <app-header-layout>
+          <app-header condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
+          <app-toolbar>
+              {% include logo.html %}
+              <div condensed-title>{{site.title}}</div>
+              {% include toolbar.html %}
+          </app-toolbar>
+          <h1 main-title>{{site.maintitle}}</h1>
+          </app-header>
+            <div class="content">
+                {{content}}
+            </div>
+            {% include footer.html %}
+        </app-header-layout>
+    </app-drawer-layout>
 </body>
 
 </html>
