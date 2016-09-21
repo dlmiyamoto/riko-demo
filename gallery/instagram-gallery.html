@@ -7,7 +7,7 @@
     </style>
     <template>
           <div id="instagram"></div>
-          <iron-scroll-threshold scroll-target="[[scrollTarget]]" lower-threshold="500" on-lower-threshold="loadNext">
+          <iron-scroll-threshold scroll-target="[[scrollTarget]]" on-lower-threshold="loadNext">
         </iron-scroll-threshold>
     </template>
 </dom-module>
@@ -32,9 +32,11 @@
             console.log(this.userFeed.hasNext())
             console.log("BEEP")
             if (this.userFeed.hasNext()) {
-                this.userFeed.next()
+                this.userFeed.next();
             }
-            this.$$('iron-scroll-threshold').clearTriggers()
+            this.async(function(){
+              this.$$('iron-scroll-threshold').clearTriggers();
+            })
         }
 
     })
