@@ -4,12 +4,10 @@ layout: default
 permalink: /gallery/
 description: TAKE A LOOK AT OUR GALLERY TO SEE OUR CLASSES IN ACTION. WE HOPE FOR YOU TO BE PART OF IT TOO! DON'T FORGET TO LOOK AT OUR INSTAGRAM
 ---
-<style>
-#instagram a {
-  /*flex-basis: calc(100%/3);*/
-}
+<link rel="import" href="instagram-gallery.html"></link>
+
 </style>
-<script src="{{site.baseurl}}/scripts/instafeed.min.js"></script>
+<!-- <script src="{{site.baseurl}}/scripts/instafeed.min.js"></script>
 <script type="text/javascript">
   var userFeed = new Instafeed({
     get: "user",
@@ -22,7 +20,9 @@ description: TAKE A LOOK AT OUR GALLERY TO SEE OUR CLASSES IN ACTION. WE HOPE FO
     }
   })
   userFeed.run()
-</script>
-<div id="instagram" class="flex-wrap">
+</script> -->
 
-</div>
+<!-- <div id="instagram" class="flex-wrap">
+
+</div> -->
+<instagram-gallery></instagram-gallery>

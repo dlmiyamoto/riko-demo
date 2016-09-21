@@ -1,0 +1,43 @@
+<script src="{{site.baseurl}}/scripts/instafeed.min.js"></script>
+<script type="text/javascript">
+    var userFeed = new Instafeed({
+        get: "user",
+        userId: '253291627',
+        accessToken: '253291627.1677ed0.45b8d7466847441b9a798f77585995e8',
+        target: 'instagram',
+        resolution: 'thumbnail',
+        after: function() {
+            var el = document.getElementById('instagram');
+        }
+    })
+    userFeed.run()
+</script>
+
+<dom-module is="instagram-gallery">
+    <template>
+      <iron-scroll-threshold on-lower-threshold="loadNext">
+        <div id="instagram"></div>
+      </iron-scroll-threshold>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "instagram-gallery",
+        ready: function() {
+            this.userFeed = new Instafeed({
+                get: "user",
+                userId: '253291627',
+                accessToken: '253291627.1677ed0.45b8d7466847441b9a798f77585995e8',
+                target: 'instagram',
+                resolution: 'thumbnail'
+            })
+            this.userFeed.run()
+        },
+        loadNext: function(){
+          if (this.userFeed.hasNext()){
+            feed.next()
+          }
+        }
+
+    })
+</script>
