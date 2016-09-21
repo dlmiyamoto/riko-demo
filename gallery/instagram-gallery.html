@@ -5,11 +5,17 @@
             height: 100%;
             padding-bottom: 100px;
         }
+
+      iron-scroll-threshold {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: 0 0 60px rgba(0,0,0,0.5);
+      }
     </style>
     <template>
-        <div id="instagram"></div>
         <iron-scroll-threshold scroll-target="html" lower-threshold="500" on-lower-threshold="loadNext">
-
+          <div id="instagram"></div>
         </iron-scroll-threshold>
     </template>
 </dom-module>
