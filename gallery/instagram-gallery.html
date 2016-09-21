@@ -1,17 +1,14 @@
 <dom-module is="instagram-gallery">
-  <style>
-  :host {
-    display: block;
-    padding-bottom: 100px;
-  }
-  </style>
+    <style>
+        :host {
+            display: block;
+            height: 100%;
+            padding-bottom: 100px;
+        }
+    </style>
     <template>
-      <iron-scroll-threshold
-        lower-threshold="14"
-
-        on-lower-threshold="loadNext"
-      >
-        <div id="instagram"></div>
+        <iron-scroll-threshold lower-threshold="14" on-lower-threshold="loadNext">
+            <div id="instagram"></div>
 
         </iron-scroll-threshold>
     </template>
@@ -19,11 +16,11 @@
 <script>
     Polymer({
         is: "instagram-gallery",
-        ready: function(){
-          this.scrollTarget = document.querySelector('html')
+        ready: function() {
+            this.scrollTarget = document.querySelector('html')
         },
         attached: function() {
-          var ironScroll = this.$$('iron-scroll-threshold')
+            var ironScroll = this.$$('iron-scroll-threshold')
             this.userFeed = new Instafeed({
                 get: "user",
                 userId: '253291627',
@@ -33,13 +30,13 @@
             })
             this.userFeed.run()
         },
-        loadNext: function(){
-          console.log(this.userFeed.hasNext())
-          console.log("BEEP")
-          if (this.userFeed.hasNext()){
-            this.userFeed.next()
-          }
-          this.$$('iron-scroll-threshold').clearTriggers()
+        loadNext: function() {
+            console.log(this.userFeed.hasNext())
+            console.log("BEEP")
+            if (this.userFeed.hasNext()) {
+                this.userFeed.next()
+            }
+            this.$$('iron-scroll-threshold').clearTriggers()
         }
 
     })
