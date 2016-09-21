@@ -23,7 +23,7 @@
 <script>
     Polymer({
         is: "instagram-gallery",
-        ready: function() {
+        attached: function() {
             this.userFeed = new Instafeed({
                 get: "user",
                 userId: '253291627',
