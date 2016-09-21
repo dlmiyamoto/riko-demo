@@ -7,8 +7,8 @@
         }
     </style>
     <template>
-        <iron-scroll-threshold lower-threshold="14" on-lower-threshold="loadNext">
-            <div id="instagram"></div>
+        <div id="instagram"></div>
+        <iron-scroll-threshold scroll-target="html" on-lower-threshold="loadNext">
 
         </iron-scroll-threshold>
     </template>
