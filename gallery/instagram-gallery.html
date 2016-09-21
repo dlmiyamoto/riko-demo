@@ -1,0 +1,38 @@
+<dom-module is="instagram-gallery">
+    <style is="custom-style">
+        :host {
+            display: block;
+            padding-bottom: 100px;
+        }
+    </style>
+    <template>
+          <div id="instagram"></div>
+          <iron-scroll-threshold scroll-target="[[scrollTarget]]" on-lower-threshold="loadNext">
+        </iron-scroll-threshold>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "instagram-gallery",
+        ready: function() {
+            this.scrollTarget = document.querySelector('html');
+            this.userFeed = new Instafeed({
+                get: "user",
+                userId: '253291627',
+                accessToken: '253291627.1677ed0.45b8d7466847441b9a798f77585995e8',
+                target: 'instagram',
+                resolution: 'thumbnail',
+            })
+            this.userFeed.run()
+        },
+        loadNext: function() {
+            if (this.userFeed.hasNext()) {
+                this.userFeed.next();
+                this.async(function(){
+                  this.$$('iron-scroll-threshold').clearTriggers();
+                })
+            }
+        }
+
+    })
+</script>
