@@ -7,7 +7,7 @@
     </style>
     <template>
           <div id="instagram"></div>
-          <iron-scroll-threshold lower-threshold="500" on-lower-threshold="loadNext">
+          <iron-scroll-threshold scroll-target="[[scrollTarget]]" lower-threshold="500" on-lower-threshold="loadNext">
         </iron-scroll-threshold>
     </template>
 </dom-module>
@@ -15,7 +15,7 @@
     Polymer({
         is: "instagram-gallery",
         ready: function() {
-            this.scrollTarget = this;
+            this.scrollTarget = document.querySelector('html');
         },
         attached: function() {
             var ironScroll = this.$$('iron-scroll-threshold')
