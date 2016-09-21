@@ -14,12 +14,16 @@
     Polymer({
         is: "instagram-gallery",
         attached: function() {
+          var ironScroll = this.$$('iron-scroll-threshold')
             this.userFeed = new Instafeed({
                 get: "user",
                 userId: '253291627',
                 accessToken: '253291627.1677ed0.45b8d7466847441b9a798f77585995e8',
                 target: 'instagram',
-                resolution: 'thumbnail'
+                resolution: 'thumbnail',
+                after: function(){
+                  ironScroll.clearTriggers();
+                }
             })
             this.userFeed.run()
         },
