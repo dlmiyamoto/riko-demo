@@ -28,6 +28,8 @@
             this.userFeed.run()
         },
         loadNext: function(){
+          console.log(this.userFeed.hasNext())
+          console.log("BEEP")
           if (this.userFeed.hasNext()){
             this.userFeed.next()
           }
