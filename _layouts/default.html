@@ -3,17 +3,11 @@
 <head>
     {% include head.html %}
     <title>{{site.maintitle}} - {{page.title}}</title>
-
     <link rel="import" href="{{site.baseurl}}/elements/page-header.html"></link>
-    <style>
-    .row {
-      width: 100%;
-    }
-    [main-title] {
-      font-weight: lighter;
-      text-transform: uppercase;
-      overflow: hidden;
-    }
+    <style is="custom-style">
+      [main-title] {
+        @apply(--toolbar-title);
+      }
     </style>
 </head>
 
