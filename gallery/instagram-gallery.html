@@ -16,9 +16,6 @@
         is: "instagram-gallery",
         ready: function() {
             this.scrollTarget = document.querySelector('html');
-        },
-        attached: function() {
-            var ironScroll = this.$$('iron-scroll-threshold')
             this.userFeed = new Instafeed({
                 get: "user",
                 userId: '253291627',
@@ -29,14 +26,12 @@
             this.userFeed.run()
         },
         loadNext: function() {
-            console.log(this.userFeed.hasNext())
-            console.log("BEEP")
             if (this.userFeed.hasNext()) {
                 this.userFeed.next();
+                this.async(function(){
+                  this.$$('iron-scroll-threshold').clearTriggers();
+                })
             }
-            this.async(function(){
-              this.$$('iron-scroll-threshold').clearTriggers();
-            })
         }
 
     })
