@@ -8,11 +8,12 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 600px;
-            background-position: bottom center;
+            height: 75vh;
+            background-position: top center;
             background-size: cover;
-            background: url("{{site.baseurl}}/images/vanity-fair.jpg") 50% 0 no-repeat fixed;
+            background-origin: padding-box;
+            background-image: url("{{site.baseurl}}/images/vanity-fair.jpg");
+            background-repeat: no-repeat;
             --app-header-background-front-layer: {
                 background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
             };
@@ -22,25 +23,16 @@
         }
 
         [main-title] {
-            font-size: 3em;
-            line-height: 55px;
+            font-size: 7vh;
             font-weight: 300;
+            line-height: 7vh;
             position: absolute;
-            bottom: 40px;
+            bottom: 0;
             color: #eee;
-            margin: 0;
-            margin-left: 16px;
+            margin-left: 6vw;
+            white-space: normal;
         }
 
-        [condensed-title] {
-            @apply(--toolbar-title);
-        }
-
-        @media screen and (max-width: 480px) {
-            [main-title] {
-                white-space: normal;
-            }
-        }
 
     </style>
 </head>
@@ -62,7 +54,7 @@
             <div class="content">
                 {{content}}
             </div>
-            {% include footer.html %}
+            <!-- {% include footer.html %} -->
         </app-header-layout>
     </app-drawer-layout>
 </body>
