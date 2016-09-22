@@ -1,43 +1,35 @@
 <html>
 
 <head>
-    {% include head.html %}
     <title>{{site.maintitle}} - {{page.title}}</title>
+    {% include head.html %}
     <link rel="import" href="{{site.baseurl}}/elements/page-header.html"></link>
     <style is="custom-style">
-      [main-title] {
-        @apply(--toolbar-title);
-      }
+        [main-title] {
+            @apply(--toolbar-title);
+        }
     </style>
 </head>
 
 <body class="fullbleed" unresolved>
-  <app-drawer-layout force-narrow>
-    <app-drawer align="end">
-    {% include drawer.html %}
-  </app-drawer>
-  <app-header-layout>
-    <app-header fixed>
-    <app-toolbar>
-      <img src="{{site.baseurl}}/images/logo.png" style="height: 44px"></img>
-        <div main-title>{{site.title}}</div>
-        {% for nav in site.data.navs %}
-        <a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
-        {% endfor %}
-        <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-    </app-toolbar>
-  </app-header>
-      <div class="content">
-        <page-header>
-          <h1>{{page.title}}</h1>
-          <p>{{page.description}}</p>
-        </page-header>
-        <div class="flex">
-          {{content}}
-        </div>
-      </div>
-    </app-header-layout>
-</app-drawer-layout>
+    <app-drawer-layout force-narrow>
+        <app-drawer align="end">
+            {% include drawer.html %}
+        </app-drawer>
+        <app-header-layout>
+            <app-header fixed>
+                <app-toolbar>
+                    {% include logo.html %}
+                    <div main-title>{{site.title}}</div>
+                    {% include toolbar.html %}
+                </app-toolbar>
+            </app-header>
+            <div class="content">
+              {{ content }}
+            </div>
+            <!-- {% include footer.html %} -->
+        </app-header-layout>
+    </app-drawer-layout>
 </body>
 
 </html>

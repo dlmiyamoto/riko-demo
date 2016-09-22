@@ -1,50 +1,44 @@
 <dom-module is="team-member">
     <style is="custom-style">
         :host {
-          display: block;
+            display: block;
+            margin-bottom: 5vh;
         }
+
+        :host::content img {
+            width: inherit;
+            height: auto;
+        }
+
+        :host::content h3 {
+            font-size: 1.25em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
         @media screen and (max-width: 480px) {
             :host {
                 width: 100%;
-                margin: 0;
             }
-            img {
-              width: 100%;
-              margin: auto;
-            }
-            :host::content p {
-                margin-bottom: 30px;
+            :host::content img {
+                width: 100%;
             }
         }
 
         @media screen and (min-width: 481px) {
             :host {
-                width: 18em;
-                max-width: calc(100vw/2);
-                padding-right: 1vw;
+              width: 30vh;
+              padding-right: .5vw;
             }
             :host::content img {
-              width: 16em;
-              height: auto;
+                display: block;
+                width: 30vh;
             }
             :host::content p {
-                line-height: 1.5vw;
-                margin-bottom: 30px;
+              width: inherit;
+              display: block;
             }
         }
-
-        :host::content h3 {
-            font-size: 1.625em;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        :host::content h4 {
-            font-size: 1em;
-            margin-bottom: 30px;
-        }
-
-
     </style>
     <template>
         <img src="[[imgSrc]]"></img>

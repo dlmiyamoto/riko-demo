@@ -1,12 +1,9 @@
-    <paper-menu>
-      {% for nav in site.data.navs %}
-      <a href="{{site.baseurl}}/{{nav.href}}" class="drawer-item">
-        <!-- <paper-icon-item> -->
-          <paper-item>
-          <!-- <iron-icon icon="assignment" item-icon></iron-icon> -->
+<paper-menu>
+  {% for nav in site.data.navs %}
+  <a href="{{site.baseurl}}/{{nav.href}}" class="drawer-item">
+      <paper-item>
           {{nav.text}}
-        </paper-item>
-        <!-- </paper-icon-item> -->
-      </a>
-      {% endfor %}
-    </paper-menu>
+      </paper-item>
+  </a>
+  {% endfor %}
+</paper-menu>

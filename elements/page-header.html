@@ -2,8 +2,6 @@
     <style is="custom-style">
         :host {
             display: block;
-            margin-top: .67em;
-            margin-bottom: 2em;
         }
 
         :host::content h1 {
@@ -11,24 +9,16 @@
             color: #0d0d0d;
             font-size: 3em;
             font-weight: 900;
-            line-height: 54px;
-            text-align: left;
             text-transform: uppercase;
-            padding-right: 16px;
-            margin-right: 16px;
-            /*position: relative;*/
-            -webkit-text-stroke: 0.3px;
+            margin-right: 1vw;
         }
 
         :host::content p {
-            min-height: 54px;
-            padding-left: 16px;
+            @apply(--layout-flex);
+            padding-left: 1vw;
             color: #404040;
-            font-weight: 300;
-            line-height: 25px;
             -webkit-font-smoothing: antialiased;
             -webkit-text-stroke: 0.1px;
-            /*position: relative;*/
         }
         :host::content p:empty {
           display:none;
@@ -38,14 +28,8 @@
             :host {
                 @apply(--layout-vertical);
             }
-            :host::content h1 {
-              font-size: 2.5em;
-              margin-top: 0;
-              margin-bottom: .5em;
-            }
-            :host::content p {
-              margin-top: 0;
-              border-left: 10px solid var(--primary-color);
+            div.description {
+              border-left: 1vw solid var(--primary-color);
             }
         }
 
@@ -54,14 +38,17 @@
                 @apply(--layout-horizontal);
                 @apply(--layout-center);
             }
-            :host::content p {
-                border-left: 10px solid var(--primary-color);
+            div.description  {
+                margin: 2vh 0;
+                border-left: .75vw   solid var(--primary-color);
             }
         }
     </style>
     <template>
         <content select="h1"></content>
-        <content></content>
+        <div class="description">
+          <content></content>
+        </div>
     </template>
 </dom-module>
 <script>

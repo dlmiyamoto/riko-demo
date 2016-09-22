@@ -2,7 +2,27 @@
     <style is="custom-style">
         :host {
             display: block;
-            padding-bottom: 100px;
+            width: 100%;
+            padding-bottom: 5vh;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        :host::content a {
+          display: block;
+
+          @apply(--layout-flex);
+          margin-bottom: 2vh;
+          width: 150px;
+        }
+        :host::content img {
+          display: block;
+
+          width: 150px;
+
+        }
+        #instagram {
+          @apply(--layout-horizontal);
+          @apply(--layout-wrap);
         }
     </style>
     <template>
@@ -16,21 +36,26 @@
         is: "instagram-gallery",
         ready: function() {
             this.scrollTarget = document.querySelector('html');
-            this.userFeed = new Instafeed({
-                get: "user",
-                userId: '253291627',
-                accessToken: '253291627.1677ed0.45b8d7466847441b9a798f77585995e8',
-                target: 'instagram',
-                resolution: 'thumbnail',
-            })
-            this.userFeed.run()
+
         },
-        loadNext: function() {
-            if (this.userFeed.hasNext()) {
+        loadNext: function(e) {
+          var scrollThreshold = this.$$('iron-scroll-threshold');
+            console.log(e)
+            if (this.userFeed && this.userFeed.hasNext()) {
                 this.userFeed.next();
-                this.async(function(){
-                  this.$$('iron-scroll-threshold').clearTriggers();
-                })
+            }
+            if (!this.userFeed){
+              this.userFeed = new Instafeed({
+                  get: "user",
+                  userId: '253291627',
+                  accessToken: '253291627.1677ed0.45b8d7466847441b9a798f77585995e8',
+                  target: 'instagram',
+                  resolution: 'thumbnail',
+                  after: function(){
+                    scrollThreshold.clearTriggers()
+                  }
+              })
+              this.userFeed.run()
             }
         }
 
