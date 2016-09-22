@@ -13,6 +13,10 @@
           margin-bottom: 2vh;
           width: 150px;
         }
+        :host::content a:hover{
+          @apply(--shadow-elevation-3dp);
+
+        }
         :host::content img {
           display: block;
           width: 150px;
@@ -20,6 +24,8 @@
         #instagram {
           @apply(--layout-horizontal);
           @apply(--layout-wrap);
+          @apply(--layout-around-justified);
+
         }
     </style>
     <template>
