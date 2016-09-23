@@ -33,17 +33,14 @@
       @apply(--toolbar-mixin);
       padding-left: 1vw;
       padding-right: 1vw;
-      padding: .75vh 1vw;
+      padding: 0 1vw;
       height: 8vh;
     }
 
     .logo {
       height: 6vh;
     }
-    paper-icon-button {
-      height: 6vh;
-      width: 6vh;
-    }
+
     app-toolbar > a > paper-button {
       @apply(--toolbar-mixin);
       @apply(--toolbar-title);
@@ -81,8 +78,10 @@
 
     .flex-wrap {
         @apply(--layout-horizontal);
-        @apply(--layout-around-justified);
         @apply(--layout-wrap);
+    }
+    .around-justified {
+      @apply(--layout-around-justified);
     }
 
     @media screen and (max-width: 768px) {

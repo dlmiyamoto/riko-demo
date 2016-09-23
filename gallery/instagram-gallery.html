@@ -3,26 +3,29 @@
         :host {
             display: block;
             width: 100%;
-            padding-bottom: 5vh;
+            padding-bottom: 10vh;
             margin-left: auto;
             margin-right: auto;
         }
         :host::content a {
           display: block;
-
-          @apply(--layout-flex);
+          margin-right: 2vh;
           margin-bottom: 2vh;
           width: 150px;
         }
+        :host::content a:hover{
+          @apply(--shadow-elevation-4dp);
+
+        }
         :host::content img {
           display: block;
-
           width: 150px;
-
         }
         #instagram {
           @apply(--layout-horizontal);
           @apply(--layout-wrap);
+          @apply(--layout-around-justified);
+
         }
     </style>
     <template>

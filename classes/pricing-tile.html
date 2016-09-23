@@ -1,57 +1,81 @@
 <dom-module is="pricing-tile">
     <style is="custom-style">
-    @media screen and (max-width:480px){
-      :host {
-        display: block;
-        padding-right: 1em;
-        width: 100%;
-        /*width: calc(100%/3);*/
-      }
+    :host {
+      display: block;
+      border-top: .75vh solid var(--primary-color);
+      margin-right: 1em;
+      margin-bottom: 1em;
     }
-    @media screen and (min-width: 481px){
-      :host {
-        display: block;
-        padding-right: 1em;
-        flex: 1;
-        /*width: calc(100%/3);*/
-      }
+    .item-head{
+      height: 4em;
+      @apply(--layout-horizontal);
+      @apply(--layout-center);
+      @apply(--layout-center-justified);
     }
+    .item-content {
+      padding: 1em;
 
-        :host:hover{
-            background-color: var(--primary-color);
-        }
-
-        :host::content h3 {
-            text-transform: uppercase;
+    }
+    @media screen and (max-width: 768px) {
+        :host {
             display: block;
-            padding: 0;
+            width: 100%;
+            border-top: 1vh solid var(--primary-color);
+            @apply(--shadow-elevation-2dp);
+            margin-right: 0;
         }
+        :host > div.item-head {
+          background-color: var(--primary-color);
+          color: white;
+          @apply(--shadow-elevation-2dp);
+        }
+    }
 
-        [bit] {
-            background-color: var(--primary-color);
-            content: "" width: 100%;
-            height: 16px;
+    @media screen and (min-width: 769px) {
+        :host {
+            display: block;
+            flex: 1;
         }
+    }
 
-        .item-head {
-            position: absolute;
-            top: 0;
-        }
+    :host::content h3 {
+        text-transform: uppercase;
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    :host.hovered > div.item-head {
+      background-color: var(--primary-color);
+      color: white;
+      @apply(--shadow-elevation-2dp);
+    }
+    :host.hovered{
+      @apply(--shadow-elevation-2dp);
+    }
     </style>
     <template>
-        <!-- <paper-card elevation="0"> -->
         <div class="item-head">
-            <content select="h2"></content>
+            <content select="h3"></content>
         </div>
-        <div bit></div>
-
-        <!-- <div class="card-content"> -->
-        <content select=":not(h2)"></content>
-        <!-- </paper-card> -->
+        <div class="item-content">
+          <content></content>
+        </div>
     </template>
 </dom-module>
 <script>
     Polymer({
-        is: "pricing-tile"
+        is: "pricing-tile",
+        ready: function(){
+            this.listen(this, 'mouseenter', 'hover');
+            this.listen(this, 'mouseleave', 'blur')
+            this.itemHead = Polymer.dom(this.$$('.item-head'));
+        },
+        hover: function(){
+          this.toggleClass('hovered', true, this)
+        },
+        blur: function(){
+          this.toggleClass('hovered', false, this)
+
+        }
     })
 </script>
