@@ -16,10 +16,12 @@
             background-repeat: no-repeat;
             --app-header-background-front-layer: {
                 background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
-            };
+            }
+            ;
             --app-header-background-rear-layer: {
                 background-color: var(--primary-color);
-            };
+            }
+            ;
         }
 
         [main-title] {
@@ -29,11 +31,28 @@
             position: absolute;
             bottom: 0;
             color: #eee;
-            margin-left: 5vw;
+            margin-left: 8vh;
             white-space: normal;
         }
 
+        #social {
+            position: fixed;
+            width: 4vh;
+            left: 2vh;
+            bottom: calc(100%/3);
+            @apply(--layout-vertical);
+        }
+        #social > a >iron-icon {
+          --iron-icon-height: 4vh;
+          --iron-icon-width: 4vh;
+          margin-bottom: 3vh;
+        }
+        #social> paper-fab {
+            margin-bottom: 8px;
+            --paper-fab-iron-icon: {
 
+            }
+        }
     </style>
 </head>
 
@@ -43,20 +62,46 @@
             {% include drawer.html %}
         </app-drawer>
         <app-header-layout>
-          <app-header condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
-          <app-toolbar>
-              {% include logo.html %}
-              <div condensed-title>{{site.title}}</div>
-              {% include toolbar.html %}
-          </app-toolbar>
-          <h1 main-title>{{site.maintitle}}</h1>
-          </app-header>
+            <app-header threshold="200" condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
+                <app-toolbar>
+                    {% include logo.html %}
+                    <div condensed-title>{{site.title}}</div>
+                    {% include toolbar.html %}
+                </app-toolbar>
+                <h1 main-title>{{site.maintitle}}</h1>
+            </app-header>
+
             <div class="content">
+                <div id="social">
+                    {% for soc in site.data.social %}
+                    <a href="{{soc.href}}">
+                  <iron-icon icon="soc:{{soc.name}}"></iron-icon>
+                </a>
+                    {% endfor %}
+                </div>
+
                 {{content}}
+
             </div>
             <!-- {% include footer.html %} -->
         </app-header-layout>
     </app-drawer-layout>
+
+    <script>
+        document.querySelector('app-header').addEventListener('threshold-triggered-changed', function(e) {
+            var social = document.querySelector('#social');
+            if (e.detail.value) {
+                social.style.display = "block"
+                console.log('show')
+            } else {
+                social.style.display = "none"
+                console.log('hide')
+            }
+        })
+        document.addEventListener('iron-iconset-added', function() {
+            console.log(e)
+        })
+    </script>
 </body>
 
 </html>

@@ -1,14 +1,20 @@
 - name: twitter
   href:
+  color: #2A5B83
 
 - name: facebook
   href:
+  color: #43619C
 
 - name: instagram
   href:
+  color: white
 
 - name: pinterest
+  color: white
 
 - name: youtube
+  color: white
 
 - name: linkedin
+  color: white
