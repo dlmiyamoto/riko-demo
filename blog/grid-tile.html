@@ -2,6 +2,10 @@
     <style is="custom-style">
       :host {
         display: block;
+        margin-right: 32px;
+        @apply(--layout-vertical);
+        @apply(--layout-flex);
+
       }
       @media screen and (min-width: 480px){
         :host {
@@ -14,11 +18,13 @@
         }
       }
       .content-wrapper {
-        padding: 16px;
+        padding: 2em;
+        height: 35vh;
+        overflow-y: hidden;
       }
       .content-wrapper:hover {
         box-shadow: 0 5px 10px rgba(0,0,0,.15);
-        background-color: var(--paper-teal-200);
+        background-color: #d478ae;
       }
       :host::content a,
       :host::content a:link,
@@ -30,13 +36,13 @@
       h2 {
         font-weight: 400;
         font-size: 48px;
-        margin: 20px 0;
+
       }
       hr {
         border: 0;
         background: #606060;
         height: 1px;
-        margin: 0;
+        margin: 1em 0;
       }
       :host::content p {
         word-wrap: break-word;
@@ -47,7 +53,7 @@
       <a href="{{href}}">
         <div class="content-wrapper">
         <content select="h2"></content>
-        <content select="h3"></content>
+        <content select="span"></content>
         <hr></hr>
         <content select="p"></content>
         </div>
