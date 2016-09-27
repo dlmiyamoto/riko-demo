@@ -10,11 +10,11 @@
   href:
   color: white
 
-- name: pinterest
-  color: white
+# - name: pinterest
+#  color: white
 
 - name: youtube
   color: white
 
-- name: linkedin
-  color: white
+# - name: linkedin
+#  color: white
