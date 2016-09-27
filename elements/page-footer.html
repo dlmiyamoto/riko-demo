@@ -1,0 +1,139 @@
+<dom-module is="footer-section">
+    <style is="custom-style">
+        :host {
+            display: block;
+            @apply(--footer-mixin);
+        }
+        :host::content {
+            @apply(--layout-horizontal);
+        }
+
+        :host::content nav > * {
+            margin: 1em 3em;
+            margin-left: 3em;
+            @apply(--layout-self-center);
+        }
+        @media screen and (max-width: 767px) {
+            :host{
+                @apply(--layout-vertical);
+            }
+            h2 {
+              width: 100%;
+
+            }
+            :host::content nav {
+                @apply(--layout-vertical)
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            :host,
+            :host::content nav {
+                @apply(--layout-horizontal)
+            }
+            :host::content nav {
+                @apply(--layout-wrap);
+            }
+            h2 {
+                font-size: 1.25em;
+                width: 10vw;
+                @apply(--layout-self-center);
+            }
+        }
+    </style>
+    <template>
+        <h2>{{title}}</h2>
+        <content></content>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "footer-section",
+        extends: "section"
+    })
+</script>
+<dom-module is="contact-item">
+    <style is="custom-style">
+        :host {
+          display: block;
+            @apply(--layout-horizontal);
+        }
+        :host::content p {
+          margin: 0;
+        }
+
+        iron-icon,
+        .contact-info {
+            @apply(--layout-self-center);
+        }
+
+        .contact-info {
+            margin: .5em 1em;
+        }
+
+        @media screen and (max-width: 767px) {
+            :host {
+                margin-left: 3em;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            :host {
+                padding: 2em;
+                margin: 0 2em;
+                @apply(--layout-horizontal);
+                @apply(--layout-around-justified);
+            }
+        }
+    </style>
+    <template>
+        <iron-icon icon="[[icon]]"></iron-icon>
+        <div class="contact-info">
+            <content></content>
+        </div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "contact-item",
+    })
+</script>
+
+<dom-module is="page-footer">
+    <style is="custom-style">
+        :host{
+            display: block;
+            margin: 0;
+            @apply(--layout-vertical);
+        }
+
+        :host::content .social {
+            margin: 2em 16vw;
+            @apply(--layout-horizontal);
+            @apply(--layout-around-justified);
+        }
+
+        @media screen and (max-width: 767px) {
+            :host {
+
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            :host::content section {
+              padding: 0 16vw;
+            }
+            :host::content .site {
+                display: none;
+            }
+        }
+    </style>
+    <template>
+      <content></content>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "page-footer",
+        extends: "footer"
+    })
+</script>

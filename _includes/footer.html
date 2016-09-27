@@ -1,4 +1,31 @@
-<footer>
-    <p class="rss-subscribe">subscribe <a href="{{ " /feed.xml " | prepend: site.baseurl }}">via RSS</a></p>
-    <p>Test Footer</p>
+<footer is="page-footer">
+  <section class="social">
+      {% for soc in site.data.social %}
+      <a href="{{soc.href}}">
+          <iron-icon icon="soc:{{soc.name}}"></iron-icon>
+      </a>
+      {% endfor %}
+  </section>
+  <section is="footer-section" title="Location">
+    <contact-item icon="home">
+      <p>3363 Glendale Blvd.,</p>
+      <p>Los Angeles, CA 90039</p>
+    </contact-item>
+  </section>
+
+  <section is="footer-section" title="Contact Us" >
+    <contact-item icon="communication:phone">
+      <p>323-486-7185</p>
+    </contact-item>
+    <contact-item icon="mail">
+      <p>admissions@rikomethod.com</p>
+    </contact-item>
+</section>
+<!-- <section is="footer-section" title="Site" class="site">
+    <nav>
+      {% for nav in site.data.navs %}
+      <a href="{{site.baseurl}}/{{nav.href}}">{{nav.text}}</a>
+      {% endfor %}
+    </nav>
+</section> -->
 </footer>
