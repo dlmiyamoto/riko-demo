@@ -1,5 +1,6 @@
 
 <paper-menu>
+  <nav>
   {% for nav in site.data.navs %}
   <a href="{{site.baseurl}}/{{nav.href}}" class="drawer-item">
   <paper-icon-item>
@@ -8,10 +9,5 @@
   </paper-icon-item>
   </a>
   {% endfor %}
-
-  {% for soc in site.data.social %}
-  <a href="{{soc.href}}">
-<paper-icon-item><iron-icon icon="soc:{{soc.name}}" item-icon></iron-icon>{{soc.name}}<paper-icon-item>
-</a>
-  {% endfor %}
+</nav>
 </paper-menu>
