@@ -14,15 +14,13 @@
             --app-header-background-front-layer: {
                 background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
             }
-            ;
             --app-header-background-rear-layer: {
                 background-color: var(--primary-color);
             }
-            ;
         }
-        app-drawer {
+        /*app-drawer {
           margin-top: 64px;
-        }
+        }*/
         [main-title] {
             @apply(--landing-main-title);
         }
@@ -46,11 +44,7 @@
             </app-header>
             <iron-scroll-threshold id="bottom-threshold" lower-threshold="400">
             <div id="social">
-                {% for soc in site.data.social %}
-                <a href="{{soc.href}}">
-                    <iron-icon icon="soc:{{soc.name}}"></iron-icon>
-                </a>
-                {% endfor %}
+              {% include social.html %}
             </div>
               <div class="content flex-wrap">
                 {{content}}
@@ -65,16 +59,15 @@
             social = document.querySelector('#social');
         scrollThreshold.scrollTarget = document.querySelector('html');
         scrollThreshold.addEventListener('lower-threshold', function(e) {
-            console.log("lower")
             if(scrollThreshold.lowerTriggered){
               scrollThreshold.clearTriggers()
             }
         })
         scrollThreshold.addEventListener('upper-threshold', function(e) {
-            console.log("higher")
             scrollThreshold.clearTriggers()
         })
-        document.querySelector('app-header').addEventListener('threshold-triggered-changed', function(e) {
+        document.querySelector('app-header')
+                .addEventListener('threshold-triggered-changed', function(e) {
             social.style.display = e.detail.value ? "block": "none";
         })
     </script>

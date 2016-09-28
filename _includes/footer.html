@@ -1,24 +1,20 @@
 <footer is="page-footer">
   <section class="social">
-      {% for soc in site.data.social %}
-      <a href="{{soc.href}}">
-          <iron-icon icon="soc:{{soc.name}}"></iron-icon>
-      </a>
-      {% endfor %}
+    {% include social.html %}
   </section>
   <section is="footer-section" title="Location">
     <contact-item icon="home">
-      <p>3363 Glendale Blvd.,</p>
-      <p>Los Angeles, CA 90039</p>
+      <p>{{site.address}}</p>
+      <p>{{site.city}}, {{site.state}}, {{site.zip}}</p>
     </contact-item>
   </section>
 
   <section is="footer-section" title="Contact Us" >
     <contact-item icon="communication:phone">
-      <p>323-486-7185</p>
+      <p>{{site.data.contact.telephone}}</p>
     </contact-item>
     <contact-item icon="mail">
-      <p>admissions@rikomethod.com</p>
+      <p>{{site.email}}</p>
     </contact-item>
 </section>
 <!-- <section is="footer-section" title="Site" class="site">

@@ -15,7 +15,6 @@
 </head>
 
 <body fullbleed unresolved>
-  <!-- <template id="bind" is="dom-bind"> -->
     <app-drawer-layout force-narrow>
         <app-drawer align="end">
             {% include drawer.html %}
@@ -28,13 +27,15 @@
                     {% include toolbar.html %}
                 </app-toolbar>
             </app-header>
+            <div id="social">
+              {% include social.html %}
+            </div>
             <div class="content">
               {{ content }}
             </div>
         </app-header-layout>
         {% include footer.html %}
     </app-drawer-layout>
-  <!-- </template> -->
 </body>
 
 </html>

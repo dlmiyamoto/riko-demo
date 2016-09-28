@@ -1,0 +1,22 @@
+<script type="application/ld+json">
+		{
+				"@context": "http://schema.org",
+				"@type": "LocalBusiness",
+				"logo": "http://rikomethod.com/assets/images/logo-pink.png",
+				"url": "http://rikomethod.com",
+				"address": {
+						"@type": "PostalAddress",
+						"addressLocality": "{{site.city}}",
+						"addressRegion": "{{site.state}}",
+						"postalCode": "{{site.zipcode}}",
+						"streetAddress": "{{site.address}}"
+				},
+				"name": "Riko Method School of Piano",
+				"telephone": "{{site.telephone}}",
+				"sameAs": [
+          {% for social in site.data.social %}
+            "{{social.href}}"
+          {% endfor %}
+				]
+		}
+</script>
