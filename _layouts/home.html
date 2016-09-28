@@ -5,58 +5,30 @@
     <title>{{site.maintitle}}</title>
     <style is="custom-style">
         app-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 75vh;
-            background-position: top center;
+            height: 60vh;
+            background-position: center center;
             background-size: cover;
-            background-origin: padding-box;
-            background-image: url("{{site.baseurl}}/images/vanity-fair.jpg");
+            background-origin: content-box;
+            background-image: url("{{site.baseurl}}/images/piano.jpg");
             background-repeat: no-repeat;
             --app-header-background-front-layer: {
                 background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
             }
-            ;
             --app-header-background-rear-layer: {
                 background-color: var(--primary-color);
             }
-            ;
         }
-
+        /*app-drawer {
+          margin-top: 64px;
+        }*/
         [main-title] {
-            font-size: 7vh;
-            font-weight: 300;
-            line-height: 7vh;
-            position: absolute;
-            bottom: 0;
-            color: #eee;
-            margin-left: 8vh;
-            white-space: normal;
-        }
-
-        #social {
-            position: fixed;
-            width: 4vh;
-            left: 2vh;
-            bottom: calc(100%/3);
-            @apply(--layout-vertical);
-        }
-        #social > a >iron-icon {
-          --iron-icon-height: 4vh;
-          --iron-icon-width: 4vh;
-          margin-bottom: 3vh;
-        }
-        #social> paper-fab {
-            margin-bottom: 8px;
-            --paper-fab-iron-icon: {
-
-            }
+            @apply(--landing-main-title);
         }
     </style>
 </head>
 
-<body class="fullbleed" unresolved>
+<body fullbleed unresolved>
+  <template id="bind" is="dom-bind">
     <app-drawer-layout force-narrow>
         <app-drawer align="end">
             {% include drawer.html %}
@@ -70,38 +42,39 @@
                 </app-toolbar>
                 <h1 main-title>{{site.maintitle}}</h1>
             </app-header>
-
-            <div class="content">
-                <div id="social">
-                    {% for soc in site.data.social %}
-                    <a href="{{soc.href}}">
-                  <iron-icon icon="soc:{{soc.name}}"></iron-icon>
-                </a>
-                    {% endfor %}
-                </div>
-
-                {{content}}
-
+            <iron-scroll-threshold id="bottom-threshold" lower-threshold="400">
+            <div id="social">
+              {% include social.html %}
             </div>
-            <!-- {% include footer.html %} -->
+              <div class="content flex-wrap">
+                {{content}}
+              </div>
+            </iron-scroll-threshold>
+            {% include footer.html %}
         </app-header-layout>
     </app-drawer-layout>
 
     <script>
-        document.querySelector('app-header').addEventListener('threshold-triggered-changed', function(e) {
-            var social = document.querySelector('#social');
-            if (e.detail.value) {
-                social.style.display = "block"
-                console.log('show')
-            } else {
-                social.style.display = "none"
-                console.log('hide')
+        var scrollThreshold = document.querySelector("#bottom-threshold"),
+            social = document.querySelector('#social');
+        scrollThreshold.scrollTarget = document.querySelector('html');
+        scrollThreshold.addEventListener('lower-threshold', function(e) {
+            if(scrollThreshold.lowerTriggered){
+              scrollThreshold.clearTriggers()
             }
         })
-        document.addEventListener('iron-iconset-added', function() {
-            console.log(e)
+        scrollThreshold.addEventListener('upper-threshold', function(e) {
+            scrollThreshold.clearTriggers()
+        })
+        document.querySelector('app-header')
+                .addEventListener('threshold-triggered-changed', function(e) {
+            social.style.display = e.detail.value ? "block": "none";
         })
     </script>
+  </template>
+  <script>
+
+  </script>
 </body>
 
 </html>
