@@ -12,8 +12,10 @@ description: Our private lessons and group classes are designed to serve childre
 {% for class in site.data.classes %}
 <pricing-tile>
   <h3>{{class.name}}</h3>
-  <p>${{class.single}} / Single Lesson </p>
-  <p>${{class.monthly}} / Monthly</p>
+  <ul>
+  <li><p>${{class.single}} / Single Lesson </p></li>
+  <li><p>${{class.monthly}} / Monthly</p></li>
+</ul>
   <p>{{class.description}}</p>
 </pricing-tile>
 {% endfor %}

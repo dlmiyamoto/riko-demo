@@ -3,7 +3,7 @@
 <head>
     {% include head.html %}
     <title>{{site.maintitle}}</title>
-    <style is="custom-style">
+    <style is="custom-style" include="app-grid-style">
         app-header {
             height: 60vh;
             background-position: center center;
@@ -21,14 +21,62 @@
         /*app-drawer {
           margin-top: 64px;
         }*/
+        [condensed-title] {
+          @apply(--layout-center);
+          @apply(--layout-horizontal);
+          @apply(--layout-flex);
+          font-family: 'Roboto', 'Noto', sans-serif;
+        }
+        [condensed-title] > img {
+          height: 8vh;
+        }
         [main-title] {
             @apply(--landing-main-title);
+            @apply(--layout-vertical);
+            @apply(--layout-self-end);
+            bottom: 0;
+            /*font-family: 'Roboto', 'Noto', sans-serif;*/
+            font-weight: 800;
+            text-transform: uppercase;
+
+        }
+        [subtitle] {
+          @apply(--layout-horizontal);
+          @apply(--layout-center);
+          display: block;
+        }
+        /*[main-title]:before {
+          content: url('{{site.baseurl}}/{{site.logourl}}');
+        }*/
+        [main-title] > img {
+          @apply(--layout-center);
+        }
+
+        :root {
+          --app-grid-columns: 2;
+          --app-grid-expandible-item-columns: 2;
+          --app-grid-gutter: 10px;
+        }
+        ul.app-grid {
+          @apply(--layout-flex);
+        }
+        ul.app-grid > li:first-child {
+          @apply(--app-grid-expandible-item);
+
+        }
+        ul.app-grid > li {
+          list-style: none;
+        }
+        ul.app-grid > li.exp {
+          @apply(--app-grid-expandible-item);
+        }
+        page-header {
+          @apply(--app-grid-expandible-item);
         }
     </style>
 </head>
 
 <body fullbleed unresolved>
-  <template id="bind" is="dom-bind">
     <app-drawer-layout force-narrow>
         <app-drawer align="end">
             {% include drawer.html %}
@@ -36,11 +84,17 @@
         <app-header-layout>
             <app-header threshold="200" condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
                 <app-toolbar>
-                    {% include logo.html %}
-                    <div condensed-title>{{site.title}}</div>
+                  <div condensed-title>
+                    <!-- <img src="{{site.baseurl}}/{{site.logourl}}" class="logo"></img> -->
+                    {{site.maintitle}}
+                  </div>
+
                     {% include toolbar.html %}
                 </app-toolbar>
-                <h1 main-title>{{site.maintitle}}</h1>
+                <div main-title>
+                  {{site.maintitle}}
+                  <div subtitle>Subtitle</div>
+                </div>
             </app-header>
             <iron-scroll-threshold id="bottom-threshold" lower-threshold="400">
             <div id="social">
@@ -71,7 +125,6 @@
             social.style.display = e.detail.value ? "block": "none";
         })
     </script>
-  </template>
   <script>
 
   </script>

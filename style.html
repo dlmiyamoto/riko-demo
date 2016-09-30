@@ -20,7 +20,7 @@
             font-family: 'Dosis', sans-serif;
             color: #404040;
             font-weight: 300;
-            font-size: 2.15vh;
+            /*font-size: 2.15vh;*/
             line-height: 3.2vh;
             -webkit-font-smoothing: antialiased;
             -webkit-text-stroke: 0.1px;
@@ -31,13 +31,15 @@
           padding: 0 3vw;
         }
         --landing-main-title: {
+          @apply(--layout-self-end);
           font-size: 7vh;
           font-weight: 300;
           line-height: 7vh;
           position: absolute;
-          bottom: 0;
+          left: 0;
           color: #eee;
           margin-left: 16px;
+          margin-right: 48px;
           margin-bottom: 8px;
           white-space: normal;
         }
@@ -47,26 +49,43 @@
         margin: 0;
         @apply(--font-theme);
     }
-
+    app-header {
+      @apply(--layout-vertical);
+    }
     app-toolbar {
         @apply(--app-toolbar-mixin);
         font-family: 'Poiret One', cursive;
     }
 
-    app-toolbar > .logo {
+    app-toolbar > .brand > .logo {
         height: 6vh;
     }
+
+
     h1, h2, h3, h4, h5 {
       font-family: 'Poiret One', cursive;
 
     }
+    nav  {
+@apply(--layout-horizontal);
+    }
+    a > paper-button,
     nav >  a > paper-button {
       font-family: inherit;
       font-size: 2vh;
+      line-height: 4vh;
       font-weight: inherit;
-      text-transform: inherit;
-    }
+      text-transform: uppercase;
+      @apply(--layout-self-center);
 
+    }
+    .phone {
+      border: 2px solid;
+    }
+    .phone > iron-icon {
+      margin-right: .57em;
+      /*color: var(--primary-color);*/
+    }
     [condensed-title] {
         @apply(--toolbar-title);
     }
@@ -126,7 +145,7 @@
     #social > a >iron-icon {
       margin-bottom: 3vh;
     }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
         .content {
             padding: 16px;
         }
@@ -138,7 +157,7 @@
         }
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 769px) {
         .content {
             margin: 0 16vw;
             padding-bottom: 4em;

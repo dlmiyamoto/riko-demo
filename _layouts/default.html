@@ -11,6 +11,9 @@
         [main-title] {
             @apply(--toolbar-title);
         }
+        .logo {
+          height: 8vh;
+        }
     </style>
 </head>
 
@@ -22,8 +25,8 @@
         <app-header-layout>
             <app-header fixed effects="waterfall">
                 <app-toolbar>
-                    {% include logo.html %}
-                    <div main-title>{{site.title}}</div>
+                    <img class="logo" src="{{site.baseurl}}/{{site.logourl}}"></img>
+                    <div main-title>{{site.maintitle}}</div>
                     {% include toolbar.html %}
                 </app-toolbar>
             </app-header>
