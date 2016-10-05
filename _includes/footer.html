@@ -1,27 +1,36 @@
-<footer is="page-footer">
-  <section class="social">
-    {% include social.html %}
-  </section>
-  <section is="footer-section" title="Location">
-    <contact-item icon="home">
-      <p>{{site.address}}</p>
-      <p>{{site.city}}, {{site.state}}, {{site.zip}}</p>
-    </contact-item>
-  </section>
 
-  <section is="footer-section" title="Contact Us" >
-    <contact-item icon="communication:phone">
-      <p>{{site.telephone}}</p>
-    </contact-item>
-    <contact-item icon="mail">
-      <p>{{site.email}}</p>
-    </contact-item>
-</section>
-<!-- <section is="footer-section" title="Site" class="site">
-    <nav>
-      {% for nav in site.data.navs %}
-      <a href="{{site.baseurl}}/{{nav.href}}">{{nav.text}}</a>
-      {% endfor %}
-    </nav>
-</section> -->
+<social-toolbar horizontal>
+  {% include social.html %}
+</social-toolbar>
+<footer is="page-footer">
+    <li>
+        <section is="footer-section" title="Site Map" class="site">
+            <nav>
+                <site-map>
+                    {% for nav in site.data.navs %}
+                    <li><a href="{{site.baseurl}}/{{nav.href}}">{{nav.text}}</a></li>
+                    {% endfor %}
+                </site-map>
+            </nav>
+        </section>
+    </li>
+    <li>
+        <section is="footer-section" title="Location">
+            <contact-item icon="home">
+                <p>{{site.address}}</p>
+                <p>{{site.city}}, {{site.state}}, {{site.zip}}</p>
+            </contact-item>
+        </section>
+    </li>
+
+    <li>
+        <section is="footer-section" title="Contact Us">
+          <contact-item icon="mail">
+            <p>{{site.email}}</p>
+          </contact-item>
+            <contact-item icon="communication:phone">
+                <p>{{site.telephone}}</p>
+            </contact-item>
+        </section>
+    </li>
 </footer>

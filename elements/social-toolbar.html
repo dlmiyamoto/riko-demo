@@ -1,0 +1,32 @@
+<dom-module is="social-toolbar">
+    <style is="custom-style">
+    :host[horizontal] {
+      margin: 2em 16vw;
+      @apply(--layout-horizontal);
+      @apply(--layout-around-justified);
+    }
+    :host[vertical] {
+      @apply(--layout-vertical);
+      @apply(--layout-self-center);
+
+    }
+    :host[fixed] {
+      position: fixed;
+      width: 4vh;
+      left: 2vh;
+      top: 30vh;
+      bottom: 0;
+    }
+    :host::content iron-icon {
+      margin-bottom: 3vh;
+    }
+    </style>
+    <template>
+      <content select="a"></content>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "social-toolbar"
+    })
+</script>
