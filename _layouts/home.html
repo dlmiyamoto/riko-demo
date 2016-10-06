@@ -18,10 +18,16 @@
                 background-color: var(--primary-color);
             }
         }
+        [condensed-title]{
 
-        [main-title] {
-            @apply(--landing-main-title);
         }
+        h1[main-title]{
+          position: absolute;
+          bottom: 0;
+          @apply(--landing-main-title);
+          @apply(--layout-end);
+        }
+
     </style>
 </head>
 
@@ -37,28 +43,26 @@
                     <div condensed-title>{{site.title}}</div>
                     {% include toolbar.html %}
                 </app-toolbar>
-                <h1 main-title>{{site.maintitle}}</h1>
+                 <h1 main-title>{{site.maintitle}}</h1>
             </app-header>
-            <!-- <iron-scroll-threshold id="bottom-threshold" lower-threshold="400"> -->
             <div style="width: 100vw;">
               <social-toolbar vertical fixed>
-              {% include social.html %}
-            </social-toolbar>
-              <div class="content flex-wrap">
+                {% include social.html %}
+              </social-toolbar>
+              <div class="content">
                 {{content}}
               </div>
               {% include footer.html %}
             </div>
-            <!-- </iron-scroll-threshold> -->
         </app-header-layout>
     </app-drawer-layout>
 
     <script>
-        var social = document.querySelector('social-toolbar');
-        document.querySelector('app-header')
-                .addEventListener('threshold-triggered-changed', function(e) {
-            social.style.display = e.detail.value ? "block": "none";
-        })
+        // var social = document.querySelector('social-toolbar');
+        // document.querySelector('app-header')
+        //         .addEventListener('threshold-triggered-changed', function(e) {
+        //     social.style.display = e.detail.value ? "block": "none";
+        // })
     </script>
   </template>
   <script>

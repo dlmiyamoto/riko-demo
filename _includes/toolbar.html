@@ -6,7 +6,11 @@
     {% endfor %}
 </ul>
 </nav>
-<a href="tel:+13234867185">
-<paper-button class="phone"><iron-icon icon="communication:phone" ></iron-icon>{{site.telephone}}</paper-button>
+<a href="tel:+13234867185" >
+  <paper-button >
+    <iron-icon icon="communication:phone" item-icon></iron-icon>
+      {{site.telephone}}
+    <!-- </paper-icon-item> -->
+  </paper-button>
 </a>
 <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>

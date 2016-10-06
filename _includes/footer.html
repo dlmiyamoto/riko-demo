@@ -4,7 +4,7 @@
 </social-toolbar>
 <footer is="page-footer">
     <li>
-        <section is="footer-section" title="Site Map" class="site">
+        <section is="footer-section" title="Site" class="site">
             <nav>
                 <site-map>
                     {% for nav in site.data.navs %}
@@ -16,21 +16,26 @@
     </li>
     <li>
         <section is="footer-section" title="Location">
+          <a>
             <contact-item icon="home">
                 <p>{{site.address}}</p>
                 <p>{{site.city}}, {{site.state}}, {{site.zip}}</p>
             </contact-item>
+          </a>
         </section>
     </li>
-
     <li>
         <section is="footer-section" title="Contact Us">
-          <contact-item icon="mail">
+          <a href="mailto://{{site.email}}">
+          <contact-item icon="mail" >
             <p>{{site.email}}</p>
           </contact-item>
-            <contact-item icon="communication:phone">
+        </a>
+          <a href="tel:+13234867185">
+            <contact-item icon="communication:phone" >
                 <p>{{site.telephone}}</p>
             </contact-item>
+          </a>
         </section>
     </li>
 </footer>
