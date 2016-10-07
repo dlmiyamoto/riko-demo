@@ -4,48 +4,50 @@
     {% include head.html %}
     <title>{{site.maintitle}}</title>
     <style is="custom-style">
-        app-header {
-            height: 60vh;
-            background-position: center center;
-            background-size: cover;
-            background-origin: content-box;
-            background-image: url("{{site.baseurl}}/images/piano.jpg");
-            background-repeat: no-repeat;
-            --app-header-background-front-layer: {
-                background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
-            }
-            --app-header-background-rear-layer: {
-                background-color: var(--primary-color);
-            }
-        }
-        [condensed-title]{
+    app-header {
+      height: 60vh;
+      background-position: center center;
+      background-size: cover;
+      background-origin: content-box;
+      background-image: url("{{site.baseurl}}/images/piano.jpg");
+      background-repeat: no-repeat;
+      --app-header-background-front-layer: {
+        background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
+      }
+      --app-header-background-rear-layer: {
+        background-color: var(--primary-color);
+      }
+    }
+    [condensed-title]{
 
-        }
-        h1[main-title]{
-          position: absolute;
-          bottom: 0;
-          @apply(--landing-main-title);
-          @apply(--layout-end);
-        }
-
+    }
+    h1[main-title]{
+      bottom: 0;
+      margin-left: 16px;
+      position: absolute;
+      white-space: normal;
+      @apply(--landing-main-title);
+      @apply(--layout-end);
+    }
     </style>
 </head>
 
 <body fullbleed unresolved>
-  <template id="bind" is="dom-bind">
+  <!-- <template id="bind" is="dom-bind"> -->
     <app-drawer-layout  force-narrow>
-        <app-drawer align="end">
+        <app-drawer>
             {% include drawer.html %}
         </app-drawer>
         <app-header-layout >
             <app-header threshold="200" condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
                 <app-toolbar>
+                  <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
                     <div condensed-title>{{site.title}}</div>
                     {% include toolbar.html %}
                 </app-toolbar>
                  <h1 main-title>{{site.maintitle}}</h1>
             </app-header>
-            <div style="width: 100vw;">
+            <div>
               <social-toolbar vertical fixed>
                 {% include social.html %}
               </social-toolbar>
@@ -56,18 +58,6 @@
             </div>
         </app-header-layout>
     </app-drawer-layout>
-
-    <script>
-        // var social = document.querySelector('social-toolbar');
-        // document.querySelector('app-header')
-        //         .addEventListener('threshold-triggered-changed', function(e) {
-        //     social.style.display = e.detail.value ? "block": "none";
-        // })
-    </script>
-  </template>
-  <script>
-
-  </script>
+  <!-- </template> -->
 </body>
-
 </html>

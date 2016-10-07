@@ -1,81 +1,56 @@
 <style is="custom-style">
-    :root {
-        --primary-color: #b81e79;
-        --app-toolbar-font-size: 2.75vh;
-        --toolbar-title: {
-            font-weight: lighter;
-            text-transform: uppercase;
-            overflow: hidden;
-        }
-        --app-toolbar-mixin: {
-            color: white;
-            font-weight: 600;
-        }
-        --font-theme: {
-            /*font-family: 'Roboto', 'Noto', sans-serif;*/
-            font-family: 'Dosis', sans-serif;
-            color: #404040;
-            font-weight: 300;
-            font-size: 2.15vh;
-            line-height: 3.2vh;
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-stroke: 0.1px;
-        }
-        --footer-mixin: {
-          background-color: #404040;
-          color: white;
-        }
-        --landing-main-title: {
-          font-size: 7vh;
-          font-weight: 300;
-          line-height: 7vh;
-          color: #eee;
-          white-space: normal;
-        }
-    }
-
     body {
+        display: block;
+        font-weight: 300;
+        font-size: 2.15vh;
+        line-height: 3.2vh;
         margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke: 0.1px;
+        @apply(--light-theme);
         @apply(--font-theme);
     }
+
     app-toolbar {
         @apply(--app-toolbar-mixin);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        @apply(--heading-theme);
+    }
+
+    ul.app-grid,
+    app-toolbar ul {
+        list-style: none;
+        padding: 0;
+
+    }
+    .exp {
+      @apply(--app-grid-expandible-item);
+    }
+    app-toolbar ul {
         @apply(--layout-horizontal);
-        @apply(--layout-flex);
-        @apply(--layout-justified);
-        font-family: 'Poiret One', cursive;
     }
 
-    app-toolbar > .logo {
-        height: 6vh;
+    app-toolbar paper-button {
+        font-family: inherit;
+        font-size: .75em;
+        font-weight: inherit;
+        text-align: center;
+        text-transform: inherit;
+        @apply(--layout-horizontal);
+        @apply(--layout-self-center);
     }
 
+    paper-button> iron-icon {
+        margin-right: .29em;
+        @apply(--layout-center);
+    }
 
-    h1, h2, h3, h4, h5 {
-      font-family: 'Poiret One', cursive;
-    }
-    ul.app-grid {
-      list-style: none;
-    }
-    nav > ul {
-      padding: 0;
-      list-style: none;
-      @apply(--layout-horizontal);
-    }
-    app-toolbar paper-button,
-    nav > ul > li > a > paper-button {
-      font-family: inherit;
-      font-size: .75em;
-      font-weight: inherit;
-      text-align: center;
-      text-transform: inherit;
-      @apply(--layout-horizontal);
-      @apply(--layout-self-center);
-    }
-    paper-button > iron-icon {
-      @apply(--layout-center);
-      margin-right: .29em;
-    }
     [condensed-title] {
         @apply(--toolbar-title);
     }
@@ -100,51 +75,20 @@
     .around-justified {
         @apply(--layout-around-justified);
     }
-    .content {
-      display:block;
-    }
-    .content> h2 {
-        font-size: 1.375em;
-        text-transform: uppercase;
-    }
-    .content> hr {
-        margin-top: 2em;
-        border-top: 1px solid #8c8b8b;
-        border-bottom: 0;
-        border-left: 0;
-        border-right: 0;
-        text-align: center;
-    }
-    .content> hr:after {
-        content: '§';
-        display: inline-block;
-        position: relative;
-        top: -16px;
-        padding: 0 10px;
-        background: white;
-        color: #8c8b8b;
-        font-size: 18px;
-    }
-    .phone {
-      display: block;
-      border: 2px solid;
-    }
 
-    .phone > iron-icon {
-      margin-right: .57em;
-      /*color: var(--primary-color);*/
-    }
     @media screen and (max-width: 768px) {
         .content {
             padding: 16px;
         }
         .phone {
-          border: 2px solid;
+            border: 2px solid;
+            display: block;
         }
-        app-toolbar > nav {
-            display: none;
+        .phone iron-icon {
+            margin-right: .57em;
         }
-        social-toolbar [vertical] {
+        app-toolbar nav,
+        social-toolbar[vertical] {
             display: none;
         }
     }
@@ -155,12 +99,10 @@
             padding-bottom: 4em;
             min-width: 768px
         }
-        .phone {
-          display: none;
-        }
-        [drawer-toggle] {
+        .phone,
+        [drawer-toggle],
+        social-toolbar[horizontal] {
             display: none;
         }
-
     }
 </style>

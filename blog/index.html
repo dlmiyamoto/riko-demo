@@ -1,15 +1,46 @@
 ---
-layout: page
+layout: default
 title: Blog
 ---
 <link rel="import" href="grid-tile.html"></link>
-
-<div class="flex-wrap around-justified">
+<blog-grid>
+<li class="exp">  <page-header>
+      <h1>{{page.title}}</h1>
+      <p>{{page.description}}</p>
+  </page-header></li>
 {% for post in site.posts %}
-  <grid-tile href="{{ post.url | prepend: site.baseurl }}">
+<grid-tile href="{{ post.url | prepend: site.baseurl }}">
     <h2>{{ post.title | escape }}</h2>
     <span>{{ post.date | date: "%b %-d, %Y" }}</span>
     <p>{{ post.excerpt }}</p>
   </grid-tile>
 {% endfor %}
-</div>
+{% for post in site.posts %}
+  <li><grid-tile href="{{ post.url | prepend: site.baseurl }}">
+    <h2>{{ post.title | escape }}</h2>
+    <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+    <p>{{ post.excerpt }}</p>
+  </grid-tile></li>
+{% endfor %}
+{% for post in site.posts %}
+  <li><grid-tile href="{{ post.url | prepend: site.baseurl }}">
+    <h2>{{ post.title | escape }}</h2>
+    <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+    <p>{{ post.excerpt }}</p>
+  </grid-tile></li>
+{% endfor %}
+{% for post in site.posts %}
+  <li><grid-tile href="{{ post.url | prepend: site.baseurl }}">
+    <h2>{{ post.title | escape }}</h2>
+    <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+    <p>{{ post.excerpt }}</p>
+  </grid-tile></li>
+{% endfor %}
+{% for post in site.posts %}
+  <li><grid-tile href="{{ post.url | prepend: site.baseurl }}">
+    <h2>{{ post.title | escape }}</h2>
+    <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+    <p>{{ post.excerpt }}</p>
+  </grid-tile></li>
+{% endfor %}
+</blog-grid>

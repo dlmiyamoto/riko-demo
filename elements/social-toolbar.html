@@ -1,7 +1,9 @@
 <dom-module is="social-toolbar">
-    <style is="custom-style">
+    <style>
         :host {
           display: block;
+          --iron-icon-height: 48px;
+          --iron-icon-width: 48px;
         }
 
         :host[horizontal] {
@@ -27,6 +29,9 @@
 
         :host::content iron-icon {
             margin-bottom: 3vh;
+            height: 32px;
+            width: 32px;
+
         }
         :host::content{
           display: block;

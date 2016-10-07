@@ -1,55 +1,22 @@
-<script>
-    AppGridBehavior = {
-        attached: function() {
-            Array.from(this.getContentChildren('[select=li]')).forEach(e => {
-                Polymer.dom(this.$$('.app-grid')).appendChild(e)
-            })
-            this._updateGridStyles = this._updateGridStyles || function() {
-                this.updateStyles();
-            }.bind(this);
-            window.addEventListener('resize', this._updateGridStyles);
-        }
-    }
-</script>
-
-
 <dom-module is="footer-section">
     <style is="custom-style">
         :host {
             display: block;
-            @apply(--layout-vertical);
             margin-bottom: 32px;
-        }
-        :host::content {
-
+            @apply(--layout-vertical);
         }
         :host::content a,
         :host::content a:link,
         :host::content a:visited {
-            display: block;
-            @apply(--layout-self-center);
             color: inherit;
+            display: block;
             text-decoration: none;
+            @apply(--layout-self-center);
         }
 
         h2 {
             font-size: 1.25em;
             text-align: center;
-        }
-
-        @media screen and (max-width: 767px) {
-            :host {
-                @apply(--layout-vertical);
-            }
-        }
-
-        @media screen and (min-width: 768px) {
-            :host {
-                /*height: 250px;*/
-            }
-            h2 {
-                text-align: center;
-            }
         }
     </style>
     <template>
@@ -63,13 +30,13 @@
         extends: "section"
     })
 </script>
+
 <dom-module is="contact-item">
     <style is="custom-style">
         :host {
             display: block;
-            @apply(--layout-horizontal);
             padding: 1em 0;
-
+            @apply(--layout-horizontal);
         }
 
         :host::content p {
@@ -84,21 +51,6 @@
         .contact-info {
             margin: 0 1em;
             @apply(--layout-flex));
-        }
-
-        @media screen and (max-width: 768px) {
-            :host {
-                /*margin-left: 3em;*/
-
-            }
-        }
-
-        @media screen and (min-width: 769px) {
-            :host {
-                padding: 1em 0;
-                @apply(--layout-horizontal);
-                @apply(--layout-self-center);
-            }
         }
     </style>
     <template>
@@ -115,34 +67,19 @@
 </script>
 
 <dom-module is="site-map">
-    <style is="custom-style" include="app-grid-style">
+    <style is="custom-style" include="grid-style">
         :host {
             --app-grid-columns: 2;
-            --app-grid-expandible-item-columns: 2;
             --app-grid-gutter: 10px;
-        }
-
-        ul {
-            list-style: none;
-            margin: 0;
-            margin-left: -10px;
-            padding: 0;
-        }
-        :host::content li {
-          @apply(--layout-horizontal);
-          @apply(--layout-flex);
-          @apply(--layout-around-justified);
         }
         :host::content li > a {
           text-align: center;
-          @apply(--layout-flex);
         }
     </style>
     <template>
         <ul class="app-grid">
             <content select="li"></content>
         </ul>
-
     </template>
 </dom-module>
 <script>
@@ -154,20 +91,16 @@
 
 
 <dom-module is="page-footer">
-    <style is="custom-style" include="app-grid-style">
+    <style is="custom-style" include="grid-style">
         :host {
             display: block;
             padding: 0;
             @apply(--footer-mixin);
         }
-
         ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
             @apply(--layout-flex);
+            @apply(--layout-center-justified);
         }
-
         :host::content li > * {
             @apply(--layout-center-justified);
         }
@@ -182,10 +115,6 @@
             :host {
                 --app-grid-columns: 3;
                 --app-grid-expandible-item-columns: 3;
-            }
-            ul {
-                @apply(--layout-flex);
-                @apply(--layout-center-justified);
             }
         }
     </style>
