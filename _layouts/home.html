@@ -3,7 +3,9 @@
 <head>
     {% include head.html %}
     <title>{{site.maintitle}}</title>
-    <style is="custom-style">
+    <link rel="import" href="{{site.baseurl}}/elements/home-grid.html"></link>
+
+    <style is="custom-style" include="grid-style">
     app-header {
       height: 60vh;
       background-position: center center;
