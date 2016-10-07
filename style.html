@@ -1,70 +1,54 @@
 <style is="custom-style">
-    :root {
-        --primary-color: #b81e79;
-        --app-toolbar-font-size: 2.75vh;
-        --toolbar-title: {
-            font-weight: lighter;
-            text-transform: uppercase;
-            overflow: hidden;
-        }
-        --iron-icon-height: 4vh;
-        --iron-icon-width: 4vh;
-        --app-toolbar-mixin: {
-            color: white;
-            font-weight: 600;
-            min-height: 8vh;
-            max-height: 10vh;
-        }
-        --font-theme: {
-            /*font-family: 'Roboto', 'Noto', sans-serif;*/
-            font-family: 'Dosis', sans-serif;
-            color: #404040;
-            font-weight: 300;
-            font-size: 2.15vh;
-            line-height: 3.2vh;
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-stroke: 0.1px;
-        }
-        --footer-mixin: {
-          background-color: #404040;
-          color: white;
-          padding: 0 3vw;
-        }
-        --landing-main-title: {
-          font-size: 7vh;
-          font-weight: 300;
-          line-height: 7vh;
-          position: absolute;
-          bottom: 0;
-          color: #eee;
-          margin-left: 16px;
-          margin-bottom: 8px;
-          white-space: normal;
-        }
-    }
-
     body {
+        display: block;
+        font-weight: 300;
+        font-size: 2.15vh;
+        line-height: 3.2vh;
         margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke: 0.1px;
+        @apply(--light-theme);
         @apply(--font-theme);
     }
 
     app-toolbar {
         @apply(--app-toolbar-mixin);
-        font-family: 'Poiret One', cursive;
     }
 
-    app-toolbar > .logo {
-        height: 6vh;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        @apply(--heading-theme);
     }
-    h1, h2, h3, h4, h5 {
-      font-family: 'Poiret One', cursive;
+
+    ul.app-grid,
+    app-toolbar ul {
+        list-style: none;
+        padding: 0;
 
     }
-    nav >  a > paper-button {
-      font-family: inherit;
-      font-size: 2vh;
-      font-weight: inherit;
-      text-transform: inherit;
+    .exp {
+      @apply(--app-grid-expandible-item);
+    }
+    app-toolbar ul {
+        @apply(--layout-horizontal);
+    }
+
+    app-toolbar paper-button {
+        font-family: inherit;
+        font-size: .75em;
+        font-weight: inherit;
+        text-align: center;
+        text-transform: inherit;
+        @apply(--layout-horizontal);
+        @apply(--layout-self-center);
+    }
+
+    paper-button> iron-icon {
+        margin-right: .29em;
+        @apply(--layout-center);
     }
 
     [condensed-title] {
@@ -92,61 +76,32 @@
         @apply(--layout-around-justified);
     }
 
-    .content> h2 {
-        font-size: 1.375em;
-        text-transform: uppercase;
-    }
-    .content> hr {
-        margin-top: 2em;
-        border-top: 1px solid #8c8b8b;
-        border-bottom: 0;
-        border-left: 0;
-        border-right: 0;
-        text-align: center;
-    }
-    .content> hr:after {
-        content: '§';
-        display: inline-block;
-        position: relative;
-        top: -16px;
-        padding: 0 10px;
-        background: white;
-        color: #8c8b8b;
-        font-size: 18px;
-    }
-    #social {
-        position: fixed;
-        width: 4vh;
-        left: 2vh;
-        top: 30vh;
-        bottom: 0;
-        @apply(--layout-vertical);
-        @apply(--layout-self-center);
-    }
-    #social > a >iron-icon {
-      margin-bottom: 3vh;
-    }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 768px) {
         .content {
             padding: 16px;
         }
-        app-toolbar > nav {
-            display: none;
+        .phone {
+            border: 2px solid;
+            display: block;
         }
-        #social> a {
+        .phone iron-icon {
+            margin-right: .57em;
+        }
+        app-toolbar nav,
+        social-toolbar[vertical] {
             display: none;
         }
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 769px) {
         .content {
-            margin: 0 16vw;
+            padding: 0 16vw;
             padding-bottom: 4em;
-            @apply(--layout-flex);
-            @apply(--layout-around-justified);
             min-width: 768px
         }
-        [drawer-toggle] {
+        .phone,
+        [drawer-toggle],
+        social-toolbar[horizontal] {
             display: none;
         }
     }

@@ -1,7 +1,15 @@
 
 <nav>
-{% for nav in site.data.navs %}
-<a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a>
-{% endfor %}
+  <ul>
+    {% for nav in site.data.navs %}
+  <li><a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a></li>
+    {% endfor %}
+</ul>
 </nav>
-<paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+<a href="tel:+13234867185" >
+  <paper-button >
+    <iron-icon icon="communication:phone" item-icon></iron-icon>
+      {{site.telephone}}
+    <!-- </paper-icon-item> -->
+  </paper-button>
+</a>

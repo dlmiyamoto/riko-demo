@@ -1,0 +1,48 @@
+<dom-module is="social-toolbar">
+    <style>
+        :host {
+          display: block;
+          --iron-icon-height: 48px;
+          --iron-icon-width: 48px;
+        }
+
+        :host[horizontal] {
+            margin: 2em 16vw;
+            @apply(--layout-horizontal);
+            @apply(--layout-around-justified);
+        }
+
+        :host[vertical] {
+
+            @apply(--layout-vertical);
+            @apply(--layout-self-center);
+        }
+
+        :host[fixed] {
+            position: fixed;
+            width: 4vh;
+            left: 2vh;
+            top: 30vh;
+            bottom: 0;
+            @apply(--layout-vertical);
+        }
+
+        :host::content iron-icon {
+            margin-bottom: 3vh;
+            height: 32px;
+            width: 32px;
+
+        }
+        :host::content{
+          display: block;
+        }
+    </style>
+    <template>
+        <content></content>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "social-toolbar",
+    })
+</script>

@@ -2,43 +2,21 @@
     <style is="custom-style">
         :host {
             display: block;
-            @apply(--footer-mixin);
+            margin-bottom: 32px;
+            @apply(--layout-vertical);
         }
-        :host::content {
-            @apply(--layout-horizontal);
-        }
-
-        :host::content nav > * {
-            margin: 1em 3em;
-            margin-left: 3em;
+        :host::content a,
+        :host::content a:link,
+        :host::content a:visited {
+            color: inherit;
+            display: block;
+            text-decoration: none;
             @apply(--layout-self-center);
         }
-        @media screen and (max-width: 767px) {
-            :host{
-                @apply(--layout-vertical);
-            }
-            h2 {
-              width: 100%;
 
-            }
-            :host::content nav {
-                @apply(--layout-vertical)
-            }
-        }
-
-        @media screen and (min-width: 768px) {
-            :host,
-            :host::content nav {
-                @apply(--layout-horizontal)
-            }
-            :host::content nav {
-                @apply(--layout-wrap);
-            }
-            h2 {
-                font-size: 1.25em;
-                width: 10vw;
-                @apply(--layout-self-center);
-            }
+        h2 {
+            font-size: 1.25em;
+            text-align: center;
         }
     </style>
     <template>
@@ -52,14 +30,17 @@
         extends: "section"
     })
 </script>
+
 <dom-module is="contact-item">
     <style is="custom-style">
         :host {
-          display: block;
+            display: block;
+            padding: 1em 0;
             @apply(--layout-horizontal);
         }
+
         :host::content p {
-          margin: 0;
+            margin: 0;
         }
 
         iron-icon,
@@ -68,21 +49,8 @@
         }
 
         .contact-info {
-            margin: .5em 1em;
-        }
-
-        @media screen and (max-width: 767px) {
-            :host {
-                margin-left: 3em;
-            }
-        }
-        @media screen and (min-width: 768px) {
-            :host {
-                padding: 2em;
-                margin: 0 2em;
-                @apply(--layout-horizontal);
-                @apply(--layout-around-justified);
-            }
+            margin: 0 1em;
+            @apply(--layout-flex));
         }
     </style>
     <template>
@@ -98,42 +66,68 @@
     })
 </script>
 
+<dom-module is="site-map">
+    <style is="custom-style" include="grid-style">
+        :host {
+            --app-grid-columns: 2;
+            --app-grid-gutter: 10px;
+        }
+        :host::content li > a {
+          text-align: center;
+        }
+    </style>
+    <template>
+        <ul class="app-grid">
+            <content select="li"></content>
+        </ul>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "site-map",
+        behaviors: [AppGridBehavior]
+    })
+</script>
+
+
 <dom-module is="page-footer">
-    <style is="custom-style">
-        :host{
+    <style is="custom-style" include="grid-style">
+        :host {
             display: block;
-            margin: 0;
-            @apply(--layout-vertical);
+            padding: 0;
+            @apply(--footer-mixin);
         }
-
-        :host::content .social {
-            margin: 2em 16vw;
-            @apply(--layout-horizontal);
-            @apply(--layout-around-justified);
+        ul {
+            @apply(--layout-flex);
+            @apply(--layout-center-justified);
         }
-
-        @media screen and (max-width: 767px) {
+        :host::content li > * {
+            @apply(--layout-center-justified);
+        }
+        @media screen and (max-width: 768px) {
             :host {
-
+                --app-grid-columns: 1;
+                --app-grid-expandible-item-columns: 1;
             }
         }
 
-        @media screen and (min-width: 768px) {
-            :host::content section {
-              padding: 0 16vw;
-            }
-            :host::content .site {
-                display: none;
+        @media screen and (min-width: 769px) {
+            :host {
+                --app-grid-columns: 3;
+                --app-grid-expandible-item-columns: 3;
             }
         }
     </style>
     <template>
-      <content></content>
+        <ul class="app-grid">
+            <content select="li"></content>
+        </ul>
     </template>
 </dom-module>
 <script>
     Polymer({
         is: "page-footer",
-        extends: "footer"
+        extends: "footer",
+        behaviors: [AppGridBehavior]
     })
 </script>
