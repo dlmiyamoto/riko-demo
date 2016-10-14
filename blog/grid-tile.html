@@ -6,9 +6,13 @@ li:not(.exp):nth-child(4n+2){
 }
 li:not(.exp) {
 }
+li {
+  display: block;
+  @apply(--layout-flex);
+}
 li:not(.exp):hover {
   background-color: #d478ae;
-  box-shadow: 0 5px 10px rgba(0,0,0,.15);
+  /*box-shadow: 0 5px 10px rgba(0,0,0,.15);*/
 
 }
 @media screen and (max-width: 767px) {
@@ -20,8 +24,8 @@ li:not(.exp):hover {
 }
 @media screen and (min-width: 768px) {
     :host {
-      --app-grid-columns:3;
-      --app-grid-expandible-item-columns:3;
+      --app-grid-columns:1;
+      --app-grid-expandible-item-columns:1;
       --app-grid-gutter: 10px;
     }
 }
@@ -43,10 +47,8 @@ li:not(.exp):hover {
 <dom-module is="grid-tile">
     <style is="custom-style">
       :host {
-        display: block;
         @apply(--layout-vertical);
         @apply(--layout-flex);
-
       }
       @media screen and (min-width: 480px){
         :host {
@@ -59,7 +61,7 @@ li:not(.exp):hover {
         }
       }
       .content-wrapper {
-        padding: 1em;
+        padding: 0 1em;
         overflow-y: hidden;
       }
 
@@ -83,7 +85,6 @@ li:not(.exp):hover {
       :host::content p {
         overflow-y: hidden;
         word-wrap: break-word;
-        margin-bottom: 2em;
       }
     </style>
     <template>

@@ -2,24 +2,24 @@
 #
 - href:
   text: About
-  icon: info
 
 - href: team/
   text: Team
-  icon: social:people
 
 - href: classes/
   text: Classes
-  icon: class
 
 - href: gallery/
   text: Gallery
-  icon: image:photo-library
 
-- href: causes/
-  text: Causes
-  icon: favorite
+- href: calendar/
+  text: Calendar
+
+- href: contact/
+  text: Contact
+
+#- href: causes/
+#  text: Causes
 
 - href: blog/
   text: Blog
-  icon: book

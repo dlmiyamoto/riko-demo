@@ -31,6 +31,8 @@
       @apply(--landing-main-title);
       @apply(--layout-end);
     }
+
+
     </style>
 </head>
 
@@ -48,12 +50,15 @@
                     {% include toolbar.html %}
                 </app-toolbar>
                  <h1 main-title>{{site.maintitle}}</h1>
+
             </app-header>
+
             <div>
               <social-toolbar vertical fixed>
                 {% include social.html %}
               </social-toolbar>
               <div class="content">
+
                 {{content}}
               </div>
               {% include footer.html %}

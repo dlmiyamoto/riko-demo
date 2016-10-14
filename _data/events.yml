@@ -1,0 +1,19 @@
+- name: Mommy & Do-Re-Me
+  time: Any day, any time!
+  location: Salle Scarlatti
+  status: upcoming
+
+- name: Private Lessons
+  time: Any day, any time!
+  location: Home or Studio
+  status: ongoing
+
+- name: Little Tunes
+  time: Sat., 9:30 AM - 10:25AM
+  location: Salle Scarlatti
+  status: ongoing
+
+- name: Mommy & Do-Re-Me
+  time: Any day, any time!
+  location: Salle Scarlatti
+  status: ongoing
