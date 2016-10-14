@@ -1,20 +1,10 @@
 <dom-module is="class-grid">
     <template>
         <style include="grid-style">
-            @media screen and (max-width: 767px) {
-                :host {
-                    --app-grid-columns: 1;
-                    --app-grid-expandible-item-columns: 1;
-                    --app-grid-gutter: 5px;
-                    @apply(--layout-vertical);
-                }
-            }
-
             @media screen and (min-width: 768px) {
                 :host {
                     --app-grid-columns: 3;
                     --app-grid-expandible-item-columns: 3;
-                    --app-grid-gutter: 10px;
                 }
             }
         </style>

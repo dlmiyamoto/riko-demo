@@ -4,12 +4,7 @@
     {% for nav in site.data.navs %}
   <li><a href="{{site.baseurl}}/{{nav.href}}"><paper-button>{{nav.text}}</paper-button></a></li>
     {% endfor %}
+  <li>  <phone-button phone-number="{{site.telephone}}"></phone-button>
+</li>
 </ul>
 </nav>
-<a href="tel:+13234867185" >
-  <paper-button >
-    <iron-icon icon="communication:phone" item-icon></iron-icon>
-      {{site.telephone}}
-    <!-- </paper-icon-item> -->
-  </paper-button>
-</a>

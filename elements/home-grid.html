@@ -1,74 +1,74 @@
 <dom-module is="home-grid">
-<style is="custom-style" include="grid-style">
-:host {
+    <style is="custom-style" include="grid-style">
+        :host {}
 
-}
-:host::content li {
-  @apply(--layout-vertical);
-}
-:host::content blockquote {
-  border-left:1vh solid var(--primary-color);
-  margin-left: 0;
-  padding-left: 1vh;
-  line-height: 1.5em;
+        :host::content li {
+            @apply(--layout-vertical);
+        }
 
-}
-:host::content li > .form {
+        :host::content blockquote {
+            border-left: 1vh solid var(--primary-color);
+            margin-left: 0;
+            padding-left: 1vh;
+            line-height: 1.5em;
+        }
 
-  display: block;
-  width: 50%;
-  height: auto;
+        :host::content li> .form {
+            display: block;
+            width: 50%;
+            height: auto;
+        }
+        :host::content li  img {
+        }
+        :host::content li paper-input,
+        :host::content li paper-textarea {
+            font-family: 'Dosis', sans-serif;
+            margin: 0 0;
+        }
 
-}
-:host::content li paper-input,
-:host::content li paper-textarea  {
-  font-family: 'Dosis', sans-serif;
-  margin: 0 0;
-}
-:host::content paper-button {
-  background-color: var(--primary-color);
-  color: white;
-  margin: 2em 0;
-  @apply(--heading-theme);
-  @apply(--layout-horizontal);
-  @apply(--layout-center-justified);
+        :host::content paper-button {
+            background-color: var(--primary-color);
+            color: white;
+            margin: 2em 0;
+            @apply(--heading-theme);
+            @apply(--layout-horizontal);
+            @apply(--layout-center-justified);
+        }
 
-}
-:host::content li > img {
-  width: 100%;
-  height: auto;
-  @apply(--layout-flex);
-  @apply(--layout-self-center);
-  @apply(--layout-center);
-}
-  @media screen and (max-width: 767px) {
-      :host {
-          --app-grid-columns: 1;
-          --app-grid-expandible-item-columns: 1;
-          --app-grid-gutter: 5px;
-          @apply(--layout-vertical);
-      }
-  }
+        :host::content li> img {
 
-  @media screen and (min-width: 768px) {
-      :host {
-          --app-grid-columns: 2;
-          --app-grid-expandible-item-columns: 2;
-          --app-grid-gutter: 10px;
-      }
-  }
+            width: 100%;
+            height: auto;
+            margin: 8px;
+            @apply(--layout-flex);
+            @apply(--layout-self-center);
+            @apply(--layout-center);
+        }
+        :host::content a {
+          text-decoration: none;
+        }
+        @media screen and (max-width: 767px) {
+            :host {}
+        }
 
+        @media screen and (min-width: 768px) {
+            :host {
+                --app-grid-columns: 2;
+                --app-grid-expandible-item-columns: 2;
+                --app-grid-gutter: 16px;
 
-</style>
-<template>
-  <ul class="app-grid">
-      <content select="li"></content>
-  </ul>
-</template>
+            }
+        }
+    </style>
+    <template>
+        <ul class="app-grid">
+            <content select="li"></content>
+        </ul>
+    </template>
 </dom-module>
 <script>
-Polymer({
-  is: "home-grid",
-  behaviors: [AppGridBehavior]
-})
+    Polymer({
+        is: "home-grid",
+        behaviors: [AppGridBehavior]
+    })
 </script>

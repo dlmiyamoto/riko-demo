@@ -1,0 +1,91 @@
+<dom-module is="phone-button">
+    <style is="custom-style">
+        :host {
+            @apply(--layout-horizontal);
+            @apply(--layout-flex);
+            --paper-button-disabled {
+                background-color: inherit;
+                color: inherit;
+            }
+        }
+
+        paper-button[disabled] {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        paper-button {
+            font-family: inherit;
+            font-size: .75em;
+            font-weight: inherit;
+            text-align: center;
+            text-transform: inherit;
+        }
+
+        paper-button> iron-icon {
+            margin-right: .29em;
+            @apply(--layout-center);
+        }
+
+        @media screen and (min-width: 769px) {
+            a {
+                pointer-events: none;
+                cursor: text;
+            }
+            paper-button {
+                cursor: text;
+                -moz-user-select: text;
+                -khtml-user-select: text;
+                -webkit-user-select: text;
+                -ms-user-select: text;
+                user-select: text;
+            }
+        }
+    </style>
+    <template>
+        <iron-media-query query="(min-width: 768px)" on-query-matches-changed="_onQueryMatchesChanged"></iron-media-query>
+        <a>
+            <paper-button disabled="[[disabled]]" on-tap="makeCall">
+                <iron-icon icon="communication:phone" item-icon></iron-icon>
+                {{phoneNumber}}
+            </paper-button>
+        </a>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "phone-button",
+        properties: {
+            phoneNumber: String,
+            disabled: {
+                type: Boolean,
+                value: false
+            }
+        },
+        _onQueryMatchesChanged: function(e) {
+            console.log(e.detail)
+            if (e.detail.value) {
+                console.log('disabled')
+                this.disabled = true;
+            } else {
+                console.log('not disabled')
+                this.disabled = false;
+            }
+        },
+        makeCall: function() {
+            if (!this.disabled) {
+                window.location = this.phoneHref(this.phoneNumber)
+            }
+        },
+        phoneHref: function(phoneNumber) {
+            return "tel:+1" + phoneNumber.replace(/-/g, "")
+        }
+    })
+</script>

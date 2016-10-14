@@ -7,11 +7,15 @@
         }
 
         :host[horizontal] {
-            margin: 2em 16vw;
+            margin: 2em 48px;
             @apply(--layout-horizontal);
-            @apply(--layout-around-justified);
-        }
+            @apply(--layout-flex);
+            @apply(--layout-justified);
 
+        }
+        :host[horizontal] iron-icon {
+          @apply(--layout-flex)
+        }
         :host[vertical] {
 
             @apply(--layout-vertical);
