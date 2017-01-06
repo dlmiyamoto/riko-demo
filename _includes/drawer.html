@@ -1,9 +1,19 @@
-<paper-menu>
-  {% for nav in site.data.navs %}
-  <a href="{{site.baseurl}}/{{nav.href}}" class="drawer-item">
-      <paper-item>
-          {{nav.text}}
-      </paper-item>
-  </a>
-  {% endfor %}
-</paper-menu>
+
+<!-- <paper-menu> -->
+  <nav>
+    {% for nav in site.data.navs %}
+    <a href="{{site.baseurl}}/{{nav.href}}" class="drawer-item">
+    <paper-icon-item>
+      <iron-icon icon="{{nav.icon}}" item-icon></iron-icon>
+            {{nav.text}}
+    </paper-icon-item>
+    </a>
+    {% endfor %}
+    <a href="tel:+13234867185" class="phone">
+      <paper-icon-item >
+        <iron-icon icon="communication:phone" item-icon></iron-icon>
+          {{site.telephone}}
+        </paper-icon-item>
+    </a>
+  </nav>
+<!-- </paper-menu> -->

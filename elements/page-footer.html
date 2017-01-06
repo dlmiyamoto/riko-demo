@@ -1,0 +1,133 @@
+<dom-module is="footer-section">
+    <style is="custom-style">
+        :host {
+            display: block;
+            margin-bottom: 32px;
+            @apply(--layout-vertical);
+        }
+        :host::content a,
+        :host::content a:link,
+        :host::content a:visited {
+            color: inherit;
+            display: block;
+            text-decoration: none;
+            @apply(--layout-self-center);
+        }
+
+        h2 {
+            font-size: 1.25em;
+            text-align: center;
+        }
+    </style>
+    <template>
+        <h2>{{title}}</h2>
+        <content></content>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "footer-section",
+        extends: "section"
+    })
+</script>
+
+<dom-module is="contact-item">
+    <style is="custom-style">
+        :host {
+            display: block;
+            padding: 1em 0;
+            @apply(--layout-horizontal);
+        }
+
+        :host::content p {
+            margin: 0;
+        }
+
+        iron-icon,
+        .contact-info {
+            @apply(--layout-self-center);
+        }
+
+        .contact-info {
+            margin: 0 1em;
+            @apply(--layout-flex));
+        }
+    </style>
+    <template>
+        <iron-icon icon="[[icon]]"></iron-icon>
+        <div class="contact-info">
+            <content></content>
+        </div>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "contact-item",
+    })
+</script>
+
+<dom-module is="site-map">
+    <style is="custom-style" include="grid-style">
+        :host {
+            --app-grid-columns: 2;
+            --app-grid-gutter: 10px;
+        }
+        :host::content li > a {
+          text-align: center;
+        }
+    </style>
+    <template>
+        <ul class="app-grid">
+            <content select="li"></content>
+        </ul>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "site-map",
+        behaviors: [AppGridBehavior]
+    })
+</script>
+
+
+<dom-module is="page-footer">
+    <style is="custom-style" include="grid-style">
+        :host {
+            display: block;
+            padding: 0;
+            @apply(--footer-mixin);
+        }
+        ul {
+            @apply(--layout-flex);
+            @apply(--layout-center-justified);
+        }
+        :host::content li > * {
+            @apply(--layout-center-justified);
+        }
+        @media screen and (max-width: 768px) {
+            :host {
+                --app-grid-columns: 1;
+                --app-grid-expandible-item-columns: 1;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            :host {
+                --app-grid-columns: 3;
+                --app-grid-expandible-item-columns: 3;
+            }
+        }
+    </style>
+    <template>
+        <ul class="app-grid">
+            <content select="li"></content>
+        </ul>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "page-footer",
+        extends: "footer",
+        behaviors: [AppGridBehavior]
+    })
+</script>

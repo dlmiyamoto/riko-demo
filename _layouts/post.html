@@ -4,7 +4,9 @@ layout: default
 <page-header>
   <h1>{{page.title}}</h1>
   <p>{{page.description}}</p>
+
 </page-header>
-<div class="post-content markdown-body" itemprop="articleBody">
+<div>{{page.author}}</div>
+<div class="post-content markdown-body flex" style="min-height: 60%;" itemprop="articleBody">
   {{ content }}
 </div>

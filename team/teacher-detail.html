@@ -1,0 +1,43 @@
+<dom-module is="teacher-detail">
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <template>
+      <div>{{content}}</div>
+    </template>
+
+</dom-module>
+<script>
+    Polymer({
+        is: "teacher-detail",
+        properties: {
+          animationConfig: {
+            type: Object,
+            value: function(){
+              return {
+                "entry": [{
+                  name: "ripple-animation",
+                  id: "ripple",
+                  toPage: this,
+                }, {
+                  name: 'hero-animation',
+                  id: "hero",
+                  toPage: this,
+                  timing: {
+                    delay: 150
+                  }
+                }],
+                "exit": [{ {
+                  name: "transform-animation",
+                  transformFrom: "none"
+                  transformTo: "translate(0px, -200vh) scale(0.9, 1)",
+                  node: this
+                }]
+              }
+            }
+          }
+        }
+    })
+</script>

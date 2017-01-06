@@ -12,8 +12,14 @@
 - href: gallery/
   text: Gallery
 
-- href: causes/
-  text: Causes
+- href: calendar/
+  text: Calendar
+
+- href: contact/
+  text: Contact
+
+#- href: causes/
+#  text: Causes
 
 - href: blog/
   text: Blog

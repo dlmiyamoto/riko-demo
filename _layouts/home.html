@@ -3,60 +3,68 @@
 <head>
     {% include head.html %}
     <title>{{site.maintitle}}</title>
-    <style is="custom-style">
-        app-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 75vh;
-            background-position: top center;
-            background-size: cover;
-            background-origin: padding-box;
-            background-image: url("{{site.baseurl}}/images/vanity-fair.jpg");
-            background-repeat: no-repeat;
-            --app-header-background-front-layer: {
-                background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
-            };
-            --app-header-background-rear-layer: {
-                background-color: var(--primary-color);
-            };
-        }
+    <link rel="import" href="{{site.baseurl}}/elements/home-grid.html"></link>
 
-        [main-title] {
-            font-size: 7vh;
-            font-weight: 300;
-            line-height: 7vh;
-            position: absolute;
-            bottom: 0;
-            color: #eee;
-            margin-left: 5vw;
-            white-space: normal;
-        }
+    <style is="custom-style" include="grid-style">
+    app-header {
+      height: 60vh;
+      background-position: center center;
+      background-size: cover;
+      background-origin: content-box;
+      background-image: url("{{site.baseurl}}/images/piano.jpg");
+      background-repeat: no-repeat;
+      --app-header-background-front-layer: {
+        background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
+      }
+      --app-header-background-rear-layer: {
+        background-color: var(--primary-color);
+      }
+    }
+    [condensed-title]{
+
+    }
+    h1[main-title]{
+      bottom: 0;
+      margin-left: 16px;
+      position: absolute;
+      white-space: normal;
+      @apply(--landing-main-title);
+      @apply(--layout-end);
+    }
 
 
     </style>
 </head>
 
-<body class="fullbleed" unresolved>
-    <app-drawer-layout force-narrow>
-        <app-drawer align="end">
+<body fullbleed unresolved>
+  <!-- <template id="bind" is="dom-bind"> -->
+    <app-drawer-layout  force-narrow>
+        <app-drawer>
             {% include drawer.html %}
         </app-drawer>
-        <app-header-layout>
-          <app-header condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
-          <app-toolbar>
-              {% include logo.html %}
-              <div condensed-title>{{site.title}}</div>
-              {% include toolbar.html %}
-          </app-toolbar>
-          <h1 main-title>{{site.maintitle}}</h1>
-          </app-header>
-            <div class="content">
+        <app-header-layout >
+            <app-header threshold="200" condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
+                <app-toolbar>
+                  <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+                    <div condensed-title>{{site.title}}</div>
+                    {% include toolbar.html %}
+                </app-toolbar>
+                 <h1 main-title>{{site.maintitle}}</h1>
+
+            </app-header>
+
+            <div>
+              <social-toolbar vertical fixed>
+                {% include social.html %}
+              </social-toolbar>
+              <div class="content">
+
                 {{content}}
+              </div>
+              {% include footer.html %}
             </div>
-            <!-- {% include footer.html %} -->
         </app-header-layout>
     </app-drawer-layout>
+  <!-- </template> -->
 </body>
-
 </html>

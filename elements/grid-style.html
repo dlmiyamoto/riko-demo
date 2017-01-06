@@ -1,0 +1,27 @@
+<dom-module is="grid-style">
+  <template>
+    <style is="custom-style" include="app-grid-style">
+      ul.app-grid {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li.exp {
+        @apply(--app-grid-expandible-item);
+      }
+    </style>
+  </template>
+</dom-module>
+<script>
+    AppGridBehavior = {
+        attached: function() {
+            Array.from(this.getContentChildren('[select=li]')).forEach(e => {
+                Polymer.dom(this.$$('.app-grid')).appendChild(e)
+            })
+            this._updateGridStyles = this._updateGridStyles || function() {
+                this.updateStyles();
+            }.bind(this);
+            window.addEventListener('resize', this._updateGridStyles);
+        }
+    }
+</script>

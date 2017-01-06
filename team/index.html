@@ -4,8 +4,11 @@ layout: page
 permalink: /team/
 description: Our trained, multilingual instructors are active performers and passionate, committed educators.
 ---
+
+
 <link rel="import" href="team-member.html"></link>
-<div class="flex-wrap">
+<!-- <div class="grid" data-masonry='{"itemSelector": "team-member", "columnWidth": "team-member"}'> -->
+<div class="flex-wrap around-justified" style="margin-top: 16px;">
   {% for staff in site.data.team %}
   <team-member>
     <img src="images/{{staff.imgSrc}}"></img>
