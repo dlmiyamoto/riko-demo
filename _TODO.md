@@ -21,20 +21,20 @@
 
 * [ ] reconcile changes
   * [ ] data
-  * [ ] layouts
-  * [ ] includes
-  * [ ] classes
-  * [ ] contact
-  * [ ] elements
+  * [x] layouts
+  * [x] includes
+  * [x] classes
+  * [x] contact
+  * [x] elements
   * [ ] gallery
   * [ ] images
   * [x] news
   * [ ] team
-  * [ ] email.php
-  * [ ] index.html
-  * [ ] social-icons.html
-  * [ ] style
-  * [ ] theme.html
+  * [x] email.php
+  * [x] index.html
+  * [x] social-icons.html
+  * [x] style
+  * [x] theme.html
 
 
 * [ ] github
