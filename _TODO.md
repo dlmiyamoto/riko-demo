@@ -23,8 +23,13 @@
   * [ ] data
   * [x] layouts
   * [x] includes
+<<<<<<< HEAD
   * [x] classes
   * [x] contact
+=======
+  * [ ] classes
+  * [ ] contact
+>>>>>>> 65d208bc14b3120259c7cfaeab76c1f0df8a8a0d
   * [x] elements
   * [ ] gallery
   * [ ] images
