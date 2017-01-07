@@ -1,0 +1,81 @@
+<link rel="import" href="../bower_components/paper-card/paper-card.html"></link>
+
+<dom-module is="calendar-grid">
+    <style is="custom-style" include="grid-style">
+        @media screen and (min-width: 768px) {
+            :host {
+                --app-grid-columns: 3;
+                --app-grid-expandible-item-columns: 3;
+                --app-grid-gutter: 10px;
+                @apply(--grid-mixin);
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+    <template>
+        <ul class="app-grid">
+            <content select="li"></content>
+        </ul>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "calendar-grid",
+        behaviors: [AppGridBehavior],
+    })
+</script>
+
+
+<dom-module is="calendar-card">
+    <style is="custom-style">
+        :host {
+            --paper-card-header-text: {
+                color: white;
+                @apply(--heading-theme);
+                font-weight: 600;
+            }
+            --paper-card-content: {
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 1.5em;
+                @apply(--font-theme);
+            }
+        }
+
+        paper-card {}
+
+        :host::content iron-icon {
+            padding-right: 16px;
+        }
+
+        :host::content li {
+            font-weight: 300;
+            line-height: 1.5em;
+        }
+
+        paper-card {
+            @apply(--font-theme);
+            @apply(--layout-center);
+        }
+    </style>
+    <template>
+        <paper-card heading="[[heading]]" image="[[imgSrc]]">
+            <div class="card-content">
+                <content></content>
+            </div>
+        </paper-card>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "calendar-card",
+        properties: {
+            heading: String,
+            imageSrc: String
+        }
+    })
+</script>
