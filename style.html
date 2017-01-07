@@ -1,23 +1,33 @@
 <style is="custom-style">
     body {
         display: block;
+        width: 100%;
         font-weight: 300;
-        font-size: 2.5vh;
+        font-size: 1.25em;
         line-height: 1.5em;
         margin: 0;
+        text-align: justify;
         -webkit-font-smoothing: antialiased;
         -webkit-text-stroke: 0.1px;
         @apply(--light-theme);
         @apply(--font-theme);
     }
 
-    app-toolbar {
+    app-toolbar,
+    nav {
         @apply(--app-toolbar-mixin);
+        @apply(--layout-horizontal);
+        display: block;
     }
-    paper-tabs, paper-tab {
-      bottom: 0;
-      @apply(--layout-flex);
+    app-drawer {
+      color: black;
     }
+    paper-tabs,
+    paper-tab {
+        bottom: 0;
+        @apply(--layout-flex);
+    }
+
     h1,
     h2,
     h3,
@@ -26,28 +36,32 @@
         @apply(--heading-theme);
     }
 
-    ul.app-grid,
-    app-toolbar ul {
-        list-style: none;
-        padding: 0;
-    }
-
     .exp {
         @apply(--app-grid-expandible-item);
     }
 
-    app-toolbar ul {
+    app-toolbar {
         @apply(--layout-horizontal);
     }
 
-    app-toolbar paper-button,
-    phone-button > paper-button {
+    app-header ul,
+    app-toolbar ul {
+        list-style: none;
+        padding: 0;
+        @apply(--layout-horizontal);
+        @apply(--layout-self-end);
+    }
+
+    app-toolbar nav paper-button,
+    nav paper-button,
+    nav phone-button {
         font-family: inherit;
-        font-size: .75em;
+        font-size: 16px;
         font-weight: inherit;
+        /*@apply(--app-toolbar-mixin);*/
         text-align: center;
         text-transform: inherit;
-        @apply(--layout-horizontal);
+        /*@apply(--layout-horizontal);*/
         @apply(--layout-self-center);
     }
 
@@ -61,9 +75,13 @@
         color: inherit;
         text-decoration: none;
     }
-    paper-button {
-      text-decoration: none;
+    app-drawer a, app-drawer a:link, app-drawer a:visited {
+      color: black;
     }
+    paper-button {
+        text-decoration: none;
+    }
+
     app-drawer {
         overflow-y: auto;
         @apply(--shadow-elevation-2dp);
@@ -79,7 +97,7 @@
     }
 
     @media screen and (max-width: 768px) {
-        :root {
+         :root {
             --grid-mixin: {
                 --app-grid-columns: 1;
                 --app-grid-expandible-item-columns: 1;
@@ -90,17 +108,21 @@
         .content {
             padding: 16px;
         }
-        app-toolbar nav,
+        app-header nav,
+        [main-header] nav,
         social-toolbar[vertical] {
             display: none;
+        }
+        h1[main-title] {
+            bottom: 0;
         }
     }
 
     @media screen and (min-width: 769px) {
-        :root {
+         :root {
             --grid-mixin: {
-              --app-grid-columns: 3;
-              --app-grid-expandible-item-columns: 3;
+                --app-grid-columns: 3;
+                --app-grid-expandible-item-columns: 3;
                 --app-grid-gutter: 10px;
             }
         }
@@ -114,29 +136,12 @@
             display: none;
         }
     }
-    @media screen and (min-width: 1024px){
 
-    }
+    @media screen and (min-width: 1024px) {}
+
     .app-grid {
-      @apply(--grid-mixin);
+        @apply(--grid-mixin);
     }
-    form {
-      @apply(--layout-vertical);
 
-    }
-    form > paper-input, form > paper-textarea {
-      @apply(--layout-flex);
-      margin: 4px 0;
-    }
-    form > paper-button.submit {
-      display: block;
-      background-color: var(--primary-color);
-      color: white;
-      margin: 48px 0 8px 0;
-      font-family: inherit;
-      font-weight: 600;
-      text-align: center;
-      text-transform: inherit;
-      @apply(--layout-flex);
-    }
+
 </style>
