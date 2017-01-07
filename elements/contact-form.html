@@ -1,0 +1,76 @@
+<link rel="import" href="../bower_components/neon-animation/neon-animation.html"></link>
+
+<dom-module is="contact-form">
+    <style is="custom-style">
+         :host {
+            display: block;
+            /*height: 100%;*/
+            min-height: 50vh;
+        }
+
+        form {
+            display: block;
+            @apply(--layout-vertical);
+        }
+
+        a,
+        a:link,
+        a:visited {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        paper-input,
+        paper-textarea {
+            @apply(--layout-flex);
+            margin: 4px 0;
+        }
+
+        paper-button {
+            display: block;
+            background-color: var(--primary-color);
+            color: white;
+            margin: 48px 0 8px 0;
+            font-family: inherit;
+            font-weight: 600;
+            text-align: center;
+            text-transform: inherit;
+            @apply(--layout-flex);
+        }
+
+        .confirm {
+            font-size: 36px;
+            font-weight: 500;
+            text-align: center;
+            @apply(--layout-self-center);
+        }
+    </style>
+    <template>
+    <neon-animated-pages selected="{{selected}}">
+  <form is="iron-form" class="form" action="/email.php">
+    <paper-input name="name" label="Name"></paper-input>
+    <paper-input name="email" label="Email"></paper-input>
+    <paper-textarea name="message" label="Message" rows="3"></paper-textarea>
+    <paper-button class="submit" on-tap="submit">Contact Us</paper-button>
+  </form>
+  <div>
+    <div class="confirm">Thank You</div>
+    <a href="/"><paper-button>Back</paper-button></a>
+  </div>
+  </neon-animated-pages>
+</template>
+    <script>
+        Polymer({
+            is: "contact-form",
+            properties: {
+                selected: Number
+            },
+            submit: function() {
+                // this.selected = 1
+                this.$$('form').submit()
+
+            },
+
+        })
+    </script>
+</dom-module>
