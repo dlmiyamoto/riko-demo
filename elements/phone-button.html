@@ -1,8 +1,14 @@
+<link rel="import" href="../bower_components/iron-media-query/iron-media-query.html"></link>
+
+
 <dom-module is="phone-button">
     <style is="custom-style">
-        :host {
-            @apply(--layout-horizontal);
-            @apply(--layout-flex);
+         :host {
+            display: block;
+            /*padding: 0.7em 0.57em;*/
+            /*padding: 8px 0;*/
+            /*height: inherit;*/
+            @apply(--layout-self-center);
             --paper-button-disabled {
                 background-color: inherit;
                 color: inherit;
@@ -17,19 +23,23 @@
         a,
         a:link,
         a:visited {
+          @apply(--layout-flex);
+          @apply(--layout-self-center);
+
             color: inherit;
             text-decoration: none;
         }
 
         paper-button {
+            @apply(--layout-self-center);
             font-family: inherit;
-            font-size: .75em;
+            /*font-size: .75em;*/
             font-weight: inherit;
             text-align: center;
             text-transform: inherit;
         }
 
-        paper-button> iron-icon {
+        paper-button>iron-icon {
             margin-right: .29em;
             @apply(--layout-center);
         }

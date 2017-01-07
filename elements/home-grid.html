@@ -1,62 +1,69 @@
 <dom-module is="home-grid">
     <style is="custom-style" include="grid-style">
-        :host {}
+         :host {}
 
-        :host::content li {
-            @apply(--layout-vertical);
+         :host::content li>* {
+            padding: 16px;
         }
 
-        :host::content blockquote {
+         :host::content li>section {
+            @apply(--layout-flex);
+            @apply(--layout-self-center);
+        }
+
+         :host::content li>iron-image {
+            @apply(--layout-self-center);
+        }
+
+         :host::content blockquote {
             border-left: 1vh solid var(--primary-color);
             margin-left: 0;
             padding-left: 1vh;
             line-height: 1.5em;
         }
 
-        :host::content li> .form {
-            display: block;
-            width: 50%;
-            height: auto;
-        }
-        :host::content li  img {
-        }
-        :host::content li paper-input,
-        :host::content li paper-textarea {
+         :host::content li paper-input,
+         :host::content li paper-textarea {
             font-family: 'Dosis', sans-serif;
             margin: 0 0;
         }
 
-        :host::content paper-button {
-            background-color: var(--primary-color);
-            color: white;
-            margin: 2em 0;
+         :host::content paper-button {
+            @apply(--primary-theme);
             @apply(--heading-theme);
             @apply(--layout-horizontal);
             @apply(--layout-center-justified);
         }
 
-        :host::content li> img {
-
-            width: 100%;
-            height: auto;
-            margin: 8px;
+         :host::content a {
+            text-decoration: none;
             @apply(--layout-flex);
-            @apply(--layout-self-center);
-            @apply(--layout-center);
         }
-        :host::content a {
-          text-decoration: none;
-        }
+
         @media screen and (max-width: 767px) {
-            :host {}
+             :host {}
+             :host::content li {
+                @apply(--layout-vertical);
+            }
+             :host::content li>iron-image {
+                width: 100%;
+            }
         }
 
         @media screen and (min-width: 768px) {
-            :host {
+             :host {
                 --app-grid-columns: 2;
                 --app-grid-expandible-item-columns: 2;
                 --app-grid-gutter: 16px;
-
+            }
+             :host::content li {
+                @apply(--layout-horizontal);
+            }
+             :host::content li:nth-child(2n) {
+                @apply(--layout-horizontal-reverse);
+            }
+             :host::content li>iron-image {
+                width: 50%;
             }
         }
     </style>
