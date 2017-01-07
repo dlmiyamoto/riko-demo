@@ -1,70 +1,128 @@
 <html>
 
 <head>
+    <title>{{site.maintitle}} | Music Teachers and Private Lessons | Los Angeles, CA</title>
+    <meta name="description" content="Classical piano school offering private music and piano lessons for children and aspiring musicians of all ages. Conveniently located in the Atwater Village neighborhood of Los Angeles for students in Glendale, Burbank, Eagle Rock, Echo Park, Silver Lake and Los Feliz.">
+    <meta name="keywords" content="Riko Method School of Piano, piano teacher, piano lessons, Los Angeles, Atwater Village, Silver Lake, Echo Park, Eagle Rock, Glendale, Los Feliz">
+    <link rel="canonical" href="http://rikomethod.com">
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "logo": "http://rikomethod.com/assets/images/logo-pink.png",
+            "url": "http://rikomethod.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Los Angeles",
+                "addressRegion": "CA",
+                "postalCode": "90039",
+                "streetAddress": "3363 Glendale Blvd."
+            },
+            "name": "Riko Method School of Piano",
+            "telephone": "323-486-7185",
+            "sameAs": [
+                "https://www.instagram.com/rikomethod/",
+                "https://www.facebook.com/rikomethod",
+                "https://twitter.com/rikomethod",
+                "https://www.youtube.com/user/rikomethod",
+                "https://www.yelp.com/biz/riko-method-school-of-piano-los-angeles"
+            ]
+        }
+    </script>
     {% include head.html %}
-    <title>{{site.maintitle}}</title>
     <link rel="import" href="{{site.baseurl}}/elements/home-grid.html"></link>
+    <style is="custom-style">
+        app-header {
+            color: white;
+            height: 60%;
+            background-size: cover;
+            background-origin: content-box;
+            background-image: url("{{site.baseurl}}/images/student1.resized.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            --app-header-background-front-layer: {
+                background: -webkit-linear-gradient(top, transparent 0%, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+            }
+            --app-header-background-rear-layer: {
+                background-color: var(--primary-color);
+                color: white;
+            }
+        }
 
-    <style is="custom-style" include="grid-style">
-    app-header {
-      height: 60vh;
-      background-position: center center;
-      background-size: cover;
-      background-origin: content-box;
-      background-image: url("{{site.baseurl}}/images/piano.jpg");
-      background-repeat: no-repeat;
-      --app-header-background-front-layer: {
-        background: -webkit-linear-gradient(top, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
-      }
-      --app-header-background-rear-layer: {
-        background-color: var(--primary-color);
-      }
-    }
-    [condensed-title]{
+        [condensed-title] {
+            color: white;
+            @apply(--layout-flex);
+        }
 
-    }
-    h1[main-title]{
-      bottom: 0;
-      margin-left: 16px;
-      position: absolute;
-      white-space: normal;
-      @apply(--landing-main-title);
-      @apply(--layout-end);
-    }
+        app-header nav {
+            position: absolute;
+            bottom: 15;
+            right: 25;
+            height: 64px;
+            @apply(--layout-self-center);
+            @apply(--layout-flex);
+        }
 
+        app-header nav>ul {
+            @apply(--layout-self-center);
+        }
 
+        h1[main-title] {
+            position: absolute;
+            bottom: 48;
+            right: 42;
+            width: 50%;
+            text-align: right;
+            white-space: normal;
+            @apply(--landing-main-title);
+            @apply(--layout-self-end);
+            @apply(--layout-end-justified);
+            @apply(--layout-flex);
+        }
+
+        @media screen and (max-width: 768px) {
+            h1[main-title] {
+                bottom: 0;
+            }
+        }
+
+        iron-image {
+            @apply(--layout-self-center);
+        }
+
+        section {
+            width: 50%;
+            @apply(--layout-vertical);
+        }
     </style>
 </head>
 
 <body fullbleed unresolved>
-  <!-- <template id="bind" is="dom-bind"> -->
-    <app-drawer-layout  force-narrow>
+    <app-drawer-layout force-narrow>
         <app-drawer>
             {% include drawer.html %}
         </app-drawer>
-        <app-header-layout >
-            <app-header threshold="200" condenses fixed effects="waterfall resize-snapped-title fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
+        <app-header-layout fullbleed>
+            <app-header threshold="200" condenses fixed effects="waterfall resize-snapped-title parallax-background fade-background" effects-config='{"resize-snapped-title": {"startsAt": 0.8, "duration": "10ms"}, "fade-background": {"startsAt": 0.8, "endsAt": 0.9}}'>
                 <app-toolbar>
-                  <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+                    <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
                     <div condensed-title>{{site.title}}</div>
-                    {% include toolbar.html %}
                 </app-toolbar>
-                 <h1 main-title>{{site.maintitle}}</h1>
-
+                <h1 main-title>{{site.maintitle}}</h1>
+                {% include toolbar.html %}
             </app-header>
-
             <div>
-              <social-toolbar vertical fixed>
-                {% include social.html %}
-              </social-toolbar>
-              <div class="content">
-
-                {{content}}
-              </div>
-              {% include footer.html %}
+                <social-toolbar vertical fixed>
+                    {% include social.html %}
+                </social-toolbar>
+                <div class="content">
+                    {{content}}
+                </div>
+                {% include footer.html %}
             </div>
         </app-header-layout>
     </app-drawer-layout>
-  <!-- </template> -->
+    {% include footer_scripts.html %}
 </body>
+
 </html>
