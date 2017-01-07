@@ -21,11 +21,11 @@
 
 * [ ] reconcile changes
   * [ ] data
-  * [ ] layouts
-  * [ ] includes
+  * [x] layouts
+  * [x] includes
   * [ ] classes
   * [ ] contact
-  * [ ] elements
+  * [x] elements
   * [ ] gallery
   * [ ] images
   * [x] news
