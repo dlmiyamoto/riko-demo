@@ -23,8 +23,8 @@
   * [ ] data
   * [x] layouts
   * [x] includes
-  * [ ] classes
-  * [ ] contact
+  * [x] classes
+  * [x] contact
   * [x] elements
   * [ ] gallery
   * [ ] images
