@@ -1,19 +1,22 @@
-- name: Mommy & Do-Re-Me
-  time: Any day, any time!
+- name: Open House
+  time: Sat., Jan 21st, 4:00pm
   location: Salle Scarlatti
   status: upcoming
 
 - name: Private Lessons
   time: Any day, any time!
   location: Home or Studio
+  imageSrc: "Student1.jpg"
   status: ongoing
 
 - name: Little Tunes
   time: Sat., 9:30 AM - 10:25AM
   location: Salle Scarlatti
+  imageSrc: "Student2.jpg"  
   status: ongoing
 
 - name: Mommy & Do-Re-Me
   time: Any day, any time!
-  location: Salle Scarlatti
+  location: Salle Scarlatti  
+  imageSrc: "Student 3.jpg"
   status: ongoing

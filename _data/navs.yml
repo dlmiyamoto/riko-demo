@@ -12,8 +12,8 @@
 - href: gallery/
   text: Gallery
 
-- href: calendar/
-  text: Calendar
+- href: news/
+  text: News
 
 - href: contact/
   text: Contact
@@ -21,5 +21,3 @@
 #- href: causes/
 #  text: Causes
 
-- href: blog/
-  text: Blog

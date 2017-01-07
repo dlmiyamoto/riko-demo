@@ -6,9 +6,15 @@
 #   bio: {{ bio }}
 #
 
+- name: Riko Weimer
+  imgSrc: "riko.jpg"
+  title: Founder & CEO
+  bio: Since her debut in 1987, Riko has appeared in numerous concert series and festivals in Europe, Asia and the United States. Riko studied piano with Walter Hautzig at The Peabody Conservatory of Johns Hopkins University and Edson Elias at Ecole Normale de la Musique de Paris. As a music educator, she has over 30 years of piano teaching experience working with beginners, professional recording artists, and everyone in between. In addition to developing and publishing her own unique curriculum, Riko is a hands-on CEO, regularly conducting training sessions for RMSP instructors.
+
+
 - name: Jesse Wright-Fitzgerald
   imgSrc: "01.jpg"
-  title: Product Director
+  title: Director
   bio: Active as a composer, educator, and performer, Jesse has had his music performed throughout the U.S. He received his Doctorate from the USC, Thornton School of Music. In addition to working in the Riko Method, he teaches composition and music theory at the Cal State LA and Pasadena City College. This is his 7th year at Riko Method School of Piano. In addition to his work development, he oversees training and supervising our Instructors.
 
 - name: Jeremy Pfau
@@ -16,12 +22,12 @@
   title: Chief Instructor
   bio: Having played piano since the age of seven, Jeremy is trained in both classical and jazz. He joined Riko Method in October 2015. Originally from the east coast, Jeremy obtained his BA from Columbia University before moving to Los Angeles. He lives in Highland Park and when he is not teaching, plays keyboards in a rock band.
 
-- name: Matt Irwin
-  imgSrc: "04.jpg"
-  title: Instructor
-  bio: Matthew Irwin began studying piano at the early age of five. Matthew's experience includes pianist, singer and electronic musician. He currently attends CSUN studying Piano Pedagogy and Music performance. Matthew has performed for several piano instructors in Masterclass settings including Dmitry Rachmanov, Francoise Regnat and John Perry.
-
 - name: Catherine Womack
   imgSrc: "06.jpg"
   title: Instructor
   bio: Catherine grew up in a small town in east Tennessee where she started taking piano lessons at age six. Catherine focused on music throughout her academic career, earning a B.M. in Piano Performance from Queens University of Charlotte in NC and a Master’s in Piano Performance and Pedagogy from Southern Methodist University in Dallas, TX. In her free time, Catherine enjoys writing about interesting people, art and music for LA Weekly and the LA Times.
+
+- name: Samantha Eggers
+  imgSrc: "07.jpg"
+  title: Instructor
+  bio: Samantha is classically trained and began studying voice at the age of 7. With 15 years of professional performing experience, she has appeared internationally from the Edinburgh Fringe Festival to the Moscow Art Theater, as well as performing on Broadway, in National Tours and Las Vegas. Samantha believes that singers of all ages can benefit from studying classically to bring their voices to the fullest potential. Samantha studied vocal performance and psychology at The Ohio State University and received her M.F.A from the American Repertory Theatre Institute at Harvard University.
