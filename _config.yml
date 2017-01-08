@@ -22,6 +22,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 logourl: "images/logo.png"
 url: "http://example.com" # the base hostname & protocol for your site
 
+exclude:
+  - README.md
+
 
 # Build settings
 markdown: kramdown
