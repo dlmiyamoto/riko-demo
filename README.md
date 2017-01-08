@@ -71,7 +71,8 @@ Navigate to [page] and view changes.
 ### Committing Changes
 Select changes
 Enter `Summary` of the changes and `Description` if desired
-Commit to `test` 
+Commit to `test`
+Pull request
 
 
 
