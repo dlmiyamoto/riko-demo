@@ -13,7 +13,7 @@ description: Check here for news on our upcoming events, and exclusive partnersh
 <calendar-grid>
     {% for event in upcoming  %}
     <li class="exp">
-      <calendar-card heading="{{event.name}}" img-src="{{site.baseurl}}/images/keepcalm1.jpg">
+      <calendar-card heading="{{event.name}}" img-src="{{site.baseurl}}/images/{{event.imageSrc}}">
         <ul>
             <li><iron-icon icon="alarm"></iron-icon>{{event.time}}</li>
             <li><iron-icon icon="communication:location-on"></iron-icon>{{event.location}}</li>
@@ -23,5 +23,3 @@ description: Check here for news on our upcoming events, and exclusive partnersh
     </li>
     {% endfor %}
 </calendar-grid>
-
-

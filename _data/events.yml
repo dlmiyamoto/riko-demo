@@ -2,6 +2,8 @@
   time: Sat., Jan 21st, 4:00pm
   location: Salle Scarlatti
   status: upcoming
+  imageSrc: "keepcalm1.jpg"
+
 
 - name: Private Lessons
   time: Any day, any time!
@@ -12,11 +14,11 @@
 - name: Little Tunes
   time: Sat., 9:30 AM - 10:25AM
   location: Salle Scarlatti
-  imageSrc: "Student2.jpg"  
+  imageSrc: "Student2.jpg"
   status: ongoing
 
 - name: Mommy & Do-Re-Me
   time: Any day, any time!
-  location: Salle Scarlatti  
+  location: Salle Scarlatti
   imageSrc: "Student 3.jpg"
   status: ongoing
