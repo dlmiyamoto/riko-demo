@@ -1,46 +1,50 @@
 <style is="custom-style">
-:root {
-    --primary-color: #b81e79;
-    --dark-color: #404040;
-    /*--app-toolbar-font-size: 1.5em;*/
-    --accent-border:  8px solid var(--primary-color);
-    --dark-theme: {
-      background-color: var(--dark-color);
-      color: white;
+     :root {
+        --primary-color: #b81e79;
+        --dark-color: #404040;
+        /*--app-toolbar-font-size: 1.5em;*/
+        --accent-border: 8px solid var(--primary-color);
+        --dark-theme: {
+            background-color: var(--dark-color);
+            color: white;
+        }
+        --light-theme: {
+            background-color: white;
+            color: var(--dark-color);
+        }
+        --primary-theme: {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        --heading-theme: {
+            font-family: 'Poiret One', cursive;
+        }
+        --font-theme: {
+            font-family: 'Dosis', sans-serif;
+        }
+        --app-toolbar-mixin: {
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            @apply(--heading-theme);
+        }
+        --footer-mixin: {
+            @apply(--dark-theme);
+        }
+        --landing-main-title: {
+            font-size: 5vh;
+            font-weight: 300;
+            line-height: 7vh;
+            color: #eee;
+        }
+        --paper-input-container-label: {
+            @apply(--font-theme);
+        }
+        --app-drawer-content-container: {
+            @apply(--primary-theme);
+            overflow-y: auto;
+            @apply(--shadow-elevation-2dp);
+        }
+        --app-drawer-width: 224px;
     }
-    --light-theme: {
-      background-color: white;
-      color: var(--dark-color);
-    }
-    --primary-theme: {
-      background-color: var(--primary-color);
-      color: white;
-    }
-    --heading-theme: {
-      font-family: 'Poiret One', cursive;
-    }
-    --font-theme: {
-      font-family: 'Dosis', sans-serif;
-    }
-    --app-toolbar-mixin: {
-        color: white;
-        /*font-family: 'Poiret One', cursive;/*/
-        font-weight: 800;
-        text-transform: uppercase;
-        @apply(--heading-theme);
-    }
-    --footer-mixin: {
-      @apply(--dark-theme);
-    }
-    --landing-main-title: {
-      font-size: 5vh;
-      font-weight: 300;
-      line-height: 7vh;
-      color: #eee;
-    }
-    --paper-input-container-label: {
-      @apply(--font-theme);
-    }
-
-}
 </style>

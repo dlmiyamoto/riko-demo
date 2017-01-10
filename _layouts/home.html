@@ -1,7 +1,9 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
     <title>{{site.maintitle}} | Music Teachers and Private Lessons | Los Angeles, CA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Classical piano school offering private music and piano lessons for children and aspiring musicians of all ages. Conveniently located in the Atwater Village neighborhood of Los Angeles for students in Glendale, Burbank, Eagle Rock, Echo Park, Silver Lake and Los Feliz.">
     <meta name="keywords" content="Riko Method School of Piano, piano teacher, piano lessons, Los Angeles, Atwater Village, Silver Lake, Echo Park, Eagle Rock, Glendale, Los Feliz">
     <link rel="canonical" href="http://rikomethod.com">
@@ -35,6 +37,7 @@
         app-header {
             color: white;
             height: 60%;
+            width: 100vw;
             background-size: cover;
             background-origin: content-box;
             background-image: url("{{site.baseurl}}/images/student1.resized.jpg");
@@ -47,6 +50,7 @@
                 background-color: var(--primary-color);
                 color: white;
             }
+            @apply(--layout-vertical);
         }
 
         [condensed-title] {
@@ -56,33 +60,49 @@
 
         app-header nav {
             position: absolute;
-            bottom: 15;
-            right: 25;
+            bottom: 0;
             height: 64px;
-            @apply(--layout-self-center);
+            width: 100%;
+            /*@apply(--layout-self-center);*/
             @apply(--layout-flex);
+            @apply(--layout-horizontal-reverse);
+            @apply(--layout-start-justified);
         }
 
         app-header nav>ul {
             @apply(--layout-self-center);
+            right: 0;
         }
 
-        h1[main-title] {
+        [main-title] {
             position: absolute;
-            bottom: 48;
-            right: 42;
-            width: 50%;
-            text-align: right;
-            white-space: normal;
-            @apply(--landing-main-title);
-            @apply(--layout-self-end);
-            @apply(--layout-end-justified);
+            bottom: 24px;
+            left: 48px;
+            width: calc(100% -24px);
             @apply(--layout-flex);
+            @apply(--layout-horizontal-reverse);
+            @apply(--layout-start-justified);
+        }
+
+        [main-title]>h1 {
+            @apply(--landing-main-title);
+            white-space: normal;
+            text-align: right;
+            padding-right: 64px;
         }
 
         @media screen and (max-width: 768px) {
-            h1[main-title] {
+            [main-title] {
                 bottom: 0;
+            }
+            [main-title] h1 {
+                padding-right: 16px;
+                  /*margin-right: 24*/
+            }
+            app-header nav,
+            [main-header] nav,
+            social-toolbar[vertical] {
+                display: none;
             }
         }
 
@@ -93,6 +113,20 @@
         section {
             width: 50%;
             @apply(--layout-vertical);
+        }
+
+        @media screen and (max-width: 768px) {
+             :root {
+                --grid-mixin: {
+                    --app-grid-columns: 1;
+                    --app-grid-expandible-item-columns: 1;
+                    --app-grid-gutter: 5px;
+                    @apply(--layout-vertical);
+                }
+            }
+            .content {
+                padding: 16px;
+            }
         }
     </style>
 </head>
@@ -108,7 +142,9 @@
                     <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
                     <div condensed-title>{{site.title}}</div>
                 </app-toolbar>
-                <h1 main-title>{{site.maintitle}}</h1>
+                <div main-title>
+                    <h1>{{site.maintitle}}</h1>
+                </div>
                 {% include toolbar.html %}
             </app-header>
             <div>

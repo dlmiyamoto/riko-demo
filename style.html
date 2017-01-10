@@ -1,4 +1,9 @@
 <style is="custom-style">
+    /*html {
+        width: 100%;
+        height: 100%;
+    }*/
+
     body {
         display: block;
         width: 100%;
@@ -19,9 +24,11 @@
         @apply(--layout-horizontal);
         display: block;
     }
+
     app-drawer {
-      color: black;
+        color: black;
     }
+
     paper-tabs,
     paper-tab {
         bottom: 0;
@@ -75,16 +82,15 @@
         color: inherit;
         text-decoration: none;
     }
-    app-drawer a, app-drawer a:link, app-drawer a:visited {
-      color: black;
-    }
-    paper-button {
-        text-decoration: none;
+
+    app-drawer a,
+    app-drawer a:link,
+    app-drawer a:visited {
+        color: white;
     }
 
-    app-drawer {
-        overflow-y: auto;
-        @apply(--shadow-elevation-2dp);
+    paper-button {
+        text-decoration: none;
     }
 
     .flex-wrap {
@@ -113,9 +119,9 @@
         social-toolbar[vertical] {
             display: none;
         }
-        h1[main-title] {
+        /*h1[main-title] {
             bottom: 0;
-        }
+        }*/
     }
 
     @media screen and (min-width: 769px) {
@@ -142,6 +148,4 @@
     .app-grid {
         @apply(--grid-mixin);
     }
-
-
 </style>
