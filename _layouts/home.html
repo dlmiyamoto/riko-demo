@@ -36,7 +36,7 @@
     <style is="custom-style">
         app-header {
             color: white;
-            height: 60%;
+            height: 600px;
             width: 100vw;
             background-size: cover;
             background-origin: content-box;
@@ -77,8 +77,9 @@
         [main-title] {
             position: absolute;
             bottom: 24px;
-            left: 48px;
-            width: calc(100% -24px);
+            left: 64px;
+            right: 32px;
+            width: calc(100vw -24px);
             @apply(--layout-flex);
             @apply(--layout-horizontal-reverse);
             @apply(--layout-start-justified);
@@ -88,7 +89,6 @@
             @apply(--landing-main-title);
             white-space: normal;
             text-align: right;
-            padding-right: 64px;
         }
 
         @media screen and (max-width: 768px) {
@@ -96,8 +96,8 @@
                 bottom: 0;
             }
             [main-title] h1 {
-                padding-right: 16px;
-                  /*margin-right: 24*/
+                /*padding-right: 16px;*/
+                /*margin-right: 24*/
             }
             app-header nav,
             [main-header] nav,
@@ -115,6 +115,11 @@
             @apply(--layout-vertical);
         }
 
+        .page {
+            height: 100%;
+            /*@apply(--layout-fit);*/
+        }
+
         @media screen and (max-width: 768px) {
              :root {
                 --grid-mixin: {
@@ -123,6 +128,9 @@
                     --app-grid-gutter: 5px;
                     @apply(--layout-vertical);
                 }
+            }
+            app-header {
+                height: 400px;
             }
             .content {
                 padding: 16px;
@@ -147,7 +155,7 @@
                 </div>
                 {% include toolbar.html %}
             </app-header>
-            <div>
+            <div class="page">
                 <social-toolbar vertical fixed>
                     {% include social.html %}
                 </social-toolbar>
