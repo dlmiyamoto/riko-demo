@@ -46,19 +46,21 @@
         }
     </style>
     <template>
-    <neon-animated-pages selected="{{selected}}">
-  <form is="iron-form" class="form" action="/email.php">
-    <paper-input name="name" label="Name"></paper-input>
-    <paper-input name="email" label="Email"></paper-input>
-    <paper-textarea name="message" label="Message" rows="3"></paper-textarea>
-    <paper-button class="submit" on-tap="submit">Contact Us</paper-button>
-  </form>
-  <div>
-    <div class="confirm">Thank You</div>
-    <a href="/"><paper-button>Back</paper-button></a>
-  </div>
-  </neon-animated-pages>
-</template>
+        <neon-animated-pages selected="{{selected}}">
+            <form is="iron-form" class="form" action="/email.php">
+                <paper-input name="name" label="Name"></paper-input>
+                <paper-input name="email" label="Email"></paper-input>
+                <paper-textarea name="message" label="Message" rows="3"></paper-textarea>
+                <paper-button class="submit" on-tap="submit">Contact Us</paper-button>
+            </form>
+            <div>
+                <div class="confirm">Thank You</div>
+                <a href="/">
+                    <paper-button>Back</paper-button>
+                </a>
+            </div>
+        </neon-animated-pages>
+    </template>
     <script>
         Polymer({
             is: "contact-form",
