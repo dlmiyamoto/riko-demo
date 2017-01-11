@@ -6,7 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="{{page.description}}">
     <meta name="keywords" content="Riko Method School of Piano, Los Angeles, Atwater Village, Silver Lake, Echo park, music, piano teacher, piano lessons, glendale, Riko, Los Feliz, Music Education">
-    <link rel="canonical" href="http://rikomethod.com{{page.permalink}}"> {% include head.html %}
+    <link rel="canonical" href="http://rikomethod.com{{page.permalink}}">
+    {% include head.html %}
     <style is="custom-style">
         app-header {
             background-color: var(--primary-color);
@@ -15,13 +16,10 @@
         [main-title] {
             @apply(--toolbar-title);
         }
-
     </style>
 </head>
 
 <body fullbleed unresolved>
-
-    <!-- <template id="bind" is="dom-bind"> -->
     <app-drawer-layout force-narrow>
         <app-drawer>
             {% include drawer.html %}
@@ -45,7 +43,6 @@
             </div>
         </app-header-layout>
     </app-drawer-layout>
-    <!-- </template> -->
     {% include footer_scripts.html %}
 </body>
 

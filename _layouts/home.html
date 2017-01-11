@@ -64,7 +64,6 @@
             right: 16px;
             height: 64px;
             width: 100%;
-            /*@apply(--layout-self-center);*/
             @apply(--layout-flex);
             @apply(--layout-horizontal-reverse);
             @apply(--layout-start-justified);
@@ -95,10 +94,6 @@
             [main-title] {
                 bottom: 0;
             }
-            [main-title] h1 {
-                /*padding-right: 16px;*/
-                /*margin-right: 24*/
-            }
             app-header nav,
             [main-header] nav,
             social-toolbar[vertical] {
@@ -113,10 +108,6 @@
         section {
             width: 50%;
             @apply(--layout-vertical);
-        }
-
-        .page {
-            height: 100%;
         }
 
         @media screen and (max-width: 768px) {
@@ -139,7 +130,7 @@
 </head>
 
 <body fullbleed unresolved>
-    <app-drawer-layout force-narrow>
+    <app-drawer-layout fullbleed force-narrow>
         <app-drawer>
             {% include drawer.html %}
         </app-drawer>
