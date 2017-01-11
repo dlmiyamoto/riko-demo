@@ -2,45 +2,43 @@
 
 <dom-module is="social-toolbar">
     <style>
-        :host {
-          display: block;
-          --iron-icon-height: 48px;
-          --iron-icon-width: 48px;
+         :host {
+            display: block;
+            --iron-icon-height: 48px;
+            --iron-icon-width: 48px;
         }
 
-        :host[horizontal] {
-            margin: 2em 48px;
-            @apply(--layout-horizontal);
-            @apply(--layout-flex);
-            @apply(--layout-justified);
-
-        }
-        :host[horizontal] iron-icon {
-          @apply(--layout-flex)
-        }
-        :host[vertical] {
-
-            @apply(--layout-vertical);
-            @apply(--layout-self-center);
-        }
-
-        :host[fixed] {
-            position: fixed;
-            width: 4vh;
-            left: 2vh;
-            top: 30vh;
-            bottom: 0;
-            @apply(--layout-vertical);
-        }
-
-        :host::content iron-icon {
+         :host::content iron-icon {
             margin-bottom: 3vh;
             height: 32px;
             width: 32px;
-
         }
-        :host::content{
-          display: block;
+
+         :host::content {
+            /*display: block;*/
+        }
+
+        @media screen and (max-width: 768px) {
+             :host {
+                margin: 2em 48px;
+                @apply(--layout-horizontal);
+                @apply(--layout-flex);
+                @apply(--layout-justified);
+            }
+             /*:host iron-icon {
+                @apply(--layout-flex)
+            }*/
+        }
+
+        @media screen and (min-width: 769px) {
+             :host {
+                position: fixed;
+                width: 4vh;
+                left: 2vh;
+                top: 30vh;
+                bottom: 0;
+                @apply(--layout-vertical);
+            }
         }
     </style>
     <template>

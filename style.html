@@ -98,8 +98,9 @@
         @apply(--layout-wrap);
     }
 
-    .around-justified {
-        @apply(--layout-around-justified);
+    .page,
+    .content {
+        height: 100%;
     }
 
     @media screen and (max-width: 768px) {
@@ -119,9 +120,6 @@
         social-toolbar[vertical] {
             display: none;
         }
-        /*h1[main-title] {
-            bottom: 0;
-        }*/
     }
 
     @media screen and (min-width: 769px) {
