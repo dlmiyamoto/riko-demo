@@ -3,11 +3,10 @@
 
 <head>
     <title>{{site.maintitle}} - {{page.title}} | Music Teachers and Private Lessons | Los Angeles, CA</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="{{page.description}}">
     <meta name="keywords" content="Riko Method School of Piano, Los Angeles, Atwater Village, Silver Lake, Echo park, music, piano teacher, piano lessons, glendale, Riko, Los Feliz, Music Education">
-    <link rel="canonical" href="http://rikomethod.com{{page.permalink}}">
-    {% include head.html %}
+    <link rel="canonical" href="http://rikomethod.com{{page.permalink}}"> {% include head.html %}
     <style is="custom-style">
         app-header {
             background-color: var(--primary-color);
@@ -15,6 +14,10 @@
 
         [main-title] {
             @apply(--toolbar-title);
+        }
+        .page,
+        .content {
+            height: 100%;
         }
     </style>
 </head>
@@ -34,14 +37,16 @@
                     {% include toolbar.html %}
                 </app-toolbar>
             </app-header>
-            <div class="content">
+            <div class="page">
                 <social-toolbar vertical fixed>
                     {% include social.html %}
                 </social-toolbar>
-                {{ content }}
+                <div class="content">
+                    {{ content }}
+                </div>
+                {% include footer.html %}
             </div>
         </app-header-layout>
-        {% include footer.html %}
     </app-drawer-layout>
     <!-- </template> -->
     {% include footer_scripts.html %}
