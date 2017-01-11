@@ -80,12 +80,9 @@
             }
         },
         _onQueryMatchesChanged: function(e) {
-            console.log(e.detail)
             if (e.detail.value) {
-                console.log('disabled')
                 this.disabled = true;
             } else {
-                console.log('not disabled')
                 this.disabled = false;
             }
         },
