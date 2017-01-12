@@ -6,13 +6,26 @@ description: Our trained, multilingual instructors are active performers and pas
 ---
 
 <link rel="import" href="team-member.html"></link>
-<div class="flex-wrap around-justified" style="margin-top: 16px;">
+<team-grid>
+
   {% for staff in site.data.team %}
-  <team-member>
-    <img src="/images/team/{{staff.imgSrc}}"></img>
-    <h3>{{staff.name}}</h3>
-    <h4>{{staff.title}}</h4>
-    <p>{{staff.bio}}</p>
-  </team-member>
+  <li>
+    <team-member>
+      <img src="/images/team/{{staff.imgSrc}}"></img>
+      <h3>{{staff.name}}</h3>
+      <h4>{{staff.title}}</h4>
+      <p>{{staff.bio}}</p>
+    </team-member>
+  </li>
   {% endfor %}
-</div>
+</team-grid>
+<!-- <div class="flex-wrap around-justified" style="margin-top: 16px;">
+  {% for staff in site.data.team %}
+    <team-member>
+      <img src="/images/team/{{staff.imgSrc}}"></img>
+      <h3>{{staff.name}}</h3>
+      <h4>{{staff.title}}</h4>
+      <p>{{staff.bio}}</p>
+    </team-member>
+  {% endfor %}
+</div> -->

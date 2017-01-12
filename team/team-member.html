@@ -3,20 +3,25 @@
         :host {
             display: block;
             margin-bottom: 5vh;
+            @apply(--layout-vertical);
         }
 
         :host::content img {
-            width: inherit;
+          width: 100%;
             height: auto;
+            @apply(--layout-center-justified);
         }
 
         :host::content h3 {
             font-size: 1em;
             font-weight: 700;
+            margin-bottom:0;
             text-transform: uppercase;
         }
-
-        @media screen and (max-width: 480px) {
+        :host::content h4 {
+          margin: 0;
+        }
+        /*@media screen and (max-width: 480px) {
             :host {
                 width: 100%;
             }
@@ -27,18 +32,17 @@
 
         @media screen and (min-width: 481px) {
             :host {
-              width: 30vh;
               padding-right: .5vw;
             }
             :host::content img {
                 display: block;
-                width: 30vh;
+
             }
             :host::content p {
               width: inherit;
               display: block;
             }
-        }
+        }*/
     </style>
     <template>
         <img src="[[imgSrc]]"></img>
@@ -49,5 +53,27 @@
 <script>
     Polymer({
         is: "team-member"
+    })
+</script>
+<dom-module is="team-grid">
+    <template>
+        <style is="custom-style" include="grid-style">
+            @media screen and (min-width: 768px) {
+                :host {
+                    --app-grid-columns: 3;
+                    --app-grid-expandible-item-columns: 3;
+                    --app-grid-gutter: 32px;
+                }
+            }
+        </style>
+        <ul class="app-grid">
+            <content select="li"></content>
+        </ul>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "team-grid",
+        behaviors: [AppGridBehavior],
     })
 </script>
