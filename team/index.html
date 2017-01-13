@@ -11,7 +11,7 @@ description: Our trained, multilingual instructors are active performers and pas
   {% for staff in site.data.team %}
   <li>
     <team-member>
-      <img src="/images/team/{{staff.imgSrc}}"></img>
+      <img src="{{site.baseurl}}/images/team/{{staff.imgSrc}}"></img>
       <h3>{{staff.name}}</h3>
       <h4>{{staff.title}}</h4>
       <p>{{staff.bio}}</p>
@@ -19,13 +19,3 @@ description: Our trained, multilingual instructors are active performers and pas
   </li>
   {% endfor %}
 </team-grid>
-<!-- <div class="flex-wrap around-justified" style="margin-top: 16px;">
-  {% for staff in site.data.team %}
-    <team-member>
-      <img src="/images/team/{{staff.imgSrc}}"></img>
-      <h3>{{staff.name}}</h3>
-      <h4>{{staff.title}}</h4>
-      <p>{{staff.bio}}</p>
-    </team-member>
-  {% endfor %}
-</div> -->
