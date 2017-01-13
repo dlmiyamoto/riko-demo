@@ -2,8 +2,12 @@
 
 <dom-module is="calendar-grid">
     <style is="custom-style" include="grid-style">
+         :host {
+            width: 100%;
+        }
+
         @media screen and (min-width: 768px) {
-            :host {
+             :host {
                 --app-grid-columns: 3;
                 --app-grid-expandible-item-columns: 3;
                 --app-grid-gutter: 10px;
@@ -32,7 +36,8 @@
 
 <dom-module is="calendar-card">
     <style is="custom-style">
-        :host {
+         :host {
+            width: 100%;
             --paper-card-header-text: {
                 color: white;
                 @apply(--heading-theme);
@@ -48,11 +53,11 @@
 
         paper-card {}
 
-        :host::content iron-icon {
+         :host::content iron-icon {
             padding-right: 16px;
         }
 
-        :host::content li {
+         :host::content li {
             font-weight: 300;
             line-height: 1.5em;
         }
