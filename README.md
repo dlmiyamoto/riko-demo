@@ -53,17 +53,13 @@ Workflow will consist of at least 2 branches:
 
 ### Testing Changes
 
-**EITHER**
-
 * Open Terminal.Terminal starts in the `home` folder. Navigate to the site folder by entering the following commands:
 
   ```
-   cd Desktop/riko-demo-master
+   cd <<RMSP-Website>>
    jekyll serve
   ```
 
-**OR**
-* Double-click on `start.sh` in the `riko-demo-master` folder.
 
 Navigate to [page] and view changes.
 
