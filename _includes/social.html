@@ -1,5 +1,8 @@
 {% for soc in site.data.social %}
 <a href="{{soc.href}}" target="_blank">
-    <iron-icon icon="soc:{{soc.name}}"></iron-icon>
+    <iron-icon icon="soc:{{soc.name}}" src="{{soc.src}}"></iron-icon>
 </a>
 {% endfor %}
+<a href="http://rikomethod.tumblr.com" target="_blank">
+  <iron-icon src="{{site.baseurl}}/images/icons/tumblr.png"></iron-icon>
+</a>
