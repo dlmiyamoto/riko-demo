@@ -10,7 +10,7 @@
 
 * [ ] drawer
   * [ ] mobile -- white-space
-  * [ ] background -- primary color
+  * [x] background -- primary color
 
 
 * [ ] mobile
@@ -20,16 +20,16 @@
   * [ ] header image from `home` doesn't disappear on scrolling in iphone chrome
 
 * [ ] reconcile changes
-  * [ ] data
+  * [x] data
   * [x] layouts
   * [x] includes
   * [x] classes
   * [x] contact
   * [x] elements
-  * [ ] gallery
+  * [x] gallery
   * [ ] images
   * [x] news
-  * [ ] team
+  * [x] team
   * [x] email.php
   * [x] index.html
   * [x] social-icons.html

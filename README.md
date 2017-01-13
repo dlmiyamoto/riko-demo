@@ -72,8 +72,9 @@ Navigate to [page] and view changes.
 Select changes
 Enter `Summary` of the changes and `Description` if desired
 Commit to `test`
-Pull request
 
+### Merging changes
+Initiate a pull request
 
 
 ### Deployment
