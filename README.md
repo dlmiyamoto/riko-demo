@@ -1,6 +1,7 @@
 # `rikomethod.com`
 
-test test git
+test git 
+
 ## Tools
 
 - `brew` - install necessary `xcode`
