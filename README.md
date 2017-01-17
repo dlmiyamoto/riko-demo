@@ -56,7 +56,7 @@ Workflow will consist of at least 2 branches:
 * Open Terminal.Terminal starts in the `home` folder. Navigate to the site folder by entering the following commands:
 
   ```
-   cd <<RMSP-Website>>
+   cd RMSP-Website/
    jekyll serve
   ```
 
