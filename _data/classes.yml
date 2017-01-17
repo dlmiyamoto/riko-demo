@@ -1,14 +1,15 @@
 - name: Little Tunes Class
   single: 50
   monthly: 140
-  description: Little Tunes is a small, weekly, interactive music class for children ages 4-6. Through play and games, students learn the basics of music theory, music appreciation and keyboard study. Great introduction to piano lessons!
+  description: Our group class for children ages 4-6 prepares students for private lessons and encourages music appreciation and the development of organizational and study skills. 
 
-- name: In-Studio Lessons
+
+- name: Private Lessons
   single: 100
   monthly: 300
-  description: Riko Method offers private piano, voice, flute, guitar and violin lessons in your home or at our Atwater Village studio. In weekly, 45-minute lessons, trained instructors use Riko’s original method to help students experience success from the very first lesson. Our curriculum is designed to suit beginner, intermediate and advanced students of any age.
+  description: We offer weekly 45-minute private lessons at our studio or in your home in piano, guitar, violin, flute and voice. We welcome first-year, intermediate and professional-level students. 
 
 - name: Mommy and Do-Re-Me
   single: 100
   monthly: 300
-  description: This unique class provides pre- and post-natal music lessons for expecting and new mothers. A baby’s first introduction to music is through its mother’s voice. Learn the basics of playing and singing at the piano in order to provide your child with the best.
+  description: Unique music lessons designed specifically as a bonding tool for new and expecting moms.
