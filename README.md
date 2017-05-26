@@ -109,4 +109,4 @@ e.g.
 
 - content can be written in either HTML or markdown. Jekyll will parse markdown to HTML in the build process.
 
-[page]: http://localhost:4000/riko-demo/
+[page]: http://localhost:4000/
