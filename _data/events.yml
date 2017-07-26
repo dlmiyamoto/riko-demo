@@ -1,15 +1,9 @@
-- name: 
-  time: Fall, 2017
-  location: Salle Scarlatti
-  status: upcoming
-  imageSrc: "keepcalm1.jpg"
-  description: Check back here for all our future events.
-  
-- name: Private Lessons
-  time: Any day, any time!
-  location: Home or Studio
-  imageSrc: "Student1.jpg"
-  status: ongoing
+- name: Founder Interviewed
+  time: June, 2017
+  location: VoyageLA
+  imageSrc: "riko.performance.jpg"
+  status: past
+  description: Riko was recently profiled in VoyageLA. Read the interview and learn more about Riko and our school <a href=" http://voyagela.com/interview/meet-riko-weimer-riko-method-school-piano-atwater-village/">Here</a> 
 
 - name: Little Tunes
   time: Sat., 9:30 AM - 10:25AM
